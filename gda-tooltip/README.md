@@ -34,6 +34,8 @@ The GdaTooltipService service provides the GdaTooltipDirective directive with so
 
 To modify the styles, import the service into the main module.
 
+#### Example
+
 ```
 export class AppModule { 
 
