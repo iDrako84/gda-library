@@ -2,11 +2,43 @@
 
 =========
 
-This is an Angular library created by iDrako84
+This is an Angular library created by writecodeforfun
 
 ## Installation 
 
 `npm install gda-library`
+
+In order to use the animations you need to import `BrowserAnimationsModule` into your project.
+
+#### Example
+
+```
+imports: [
+  ...
+  BrowserAnimationsModule,
+  ...
+],
+```
+
+It is also necessary to import the css file globally, it is possible to import the complete css gda.css or gda.min.css, or the individual css files of the sub-projects.
+
+#### Example ALL
+```
+"styles": [
+  ...
+  "node_modules/gda-library/css/gda.min.css",
+  ...
+],
+```
+
+#### Example individual sub-projects
+```
+"styles": [
+  ...
+  "node_modules/gda-library/gda-tooltip/css/gda-tooltip.min.css",
+  ...
+],
+```
 
 ===========================================
 
