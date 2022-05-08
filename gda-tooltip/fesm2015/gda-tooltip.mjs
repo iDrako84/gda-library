@@ -1,10 +1,42 @@
 import * as i0 from '@angular/core';
-import { Directive, Input, HostListener, NgModule } from '@angular/core';
+import { Injectable, Directive, Input, HostListener, NgModule } from '@angular/core';
+
+class GdaStyleTooltip {
+    constructor(backgroundColor, color, padding, fontSize, borderRadius, zIndex) {
+        this.backgroundColor = backgroundColor;
+        this.color = color;
+        this.padding = padding;
+        this.fontSize = fontSize;
+        this.borderRadius = borderRadius;
+        this.zIndex = zIndex;
+    }
+}
+class GdaTooltipService {
+    constructor() {
+        this.styleTooltip = {
+            backgroundColor: '#999',
+            color: '#fff',
+            padding: '4px 12px',
+            fontSize: '.8rem',
+            borderRadius: '5px',
+            zIndex: '10000',
+        };
+    }
+}
+GdaTooltipService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaTooltipService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], ctorParameters: function () { return []; } });
 
 class GdaTooltipDirective {
-    constructor(elementRef, renderer) {
+    constructor(elementRef, renderer, gdaTooltipService) {
         this.elementRef = elementRef;
         this.renderer = renderer;
+        this.gdaTooltipService = gdaTooltipService;
         this.gdaTooltip = '';
         this.dataHtml = false;
         this.isMobile = this.mobileAndTabletCheck();
@@ -45,13 +77,13 @@ class GdaTooltipDirective {
         // this.renderer.appendChild(this.elementRef.nativeElement.ownerDocument.body, this.span);
         this.renderer.setStyle(this.span, 'position', 'fixed');
         this.renderer.setStyle(this.span, 'display', 'none');
-        this.renderer.setStyle(this.span, 'background-color', '#999');
-        this.renderer.setStyle(this.span, 'color', '#fff');
-        this.renderer.setStyle(this.span, 'padding', '4px 12px');
-        this.renderer.setStyle(this.span, 'font-size', '0.8em');
-        this.renderer.setStyle(this.span, 'border-radius', '5px');
+        this.renderer.setStyle(this.span, 'background-color', this.gdaTooltipService.styleTooltip.backgroundColor);
+        this.renderer.setStyle(this.span, 'color', this.gdaTooltipService.styleTooltip.color);
+        this.renderer.setStyle(this.span, 'padding', this.gdaTooltipService.styleTooltip.padding);
+        this.renderer.setStyle(this.span, 'font-size', this.gdaTooltipService.styleTooltip.fontSize);
+        this.renderer.setStyle(this.span, 'border-radius', this.gdaTooltipService.styleTooltip.borderRadius);
         this.renderer.setStyle(this.span, 'animation-duration', '0.2s');
-        this.renderer.setStyle(this.span, 'z-index', '10000');
+        this.renderer.setStyle(this.span, 'z-index', this.gdaTooltipService.styleTooltip.zIndex);
     }
     /**
      * Mouse sopra
@@ -106,14 +138,14 @@ class GdaTooltipDirective {
         }
     }
 }
-GdaTooltipDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Directive });
+GdaTooltipDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaTooltipService }], target: i0.ɵɵFactoryTarget.Directive });
 GdaTooltipDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.3.6", type: GdaTooltipDirective, selector: "[gdaTooltip]", inputs: { gdaTooltip: "gdaTooltip", dataHtml: "dataHtml" }, host: { listeners: { "mouseenter": "onClick($event)", "mouseleave": "mouseleave()" } }, usesOnChanges: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[gdaTooltip]'
                 }]
-        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i0.Renderer2 }]; }, propDecorators: { gdaTooltip: [{
+        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i0.Renderer2 }, { type: GdaTooltipService }]; }, propDecorators: { gdaTooltip: [{
                 type: Input
             }], dataHtml: [{
                 type: Input
@@ -151,5 +183,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.6", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { GdaTooltipDirective, GdaTooltipModule };
+export { GdaStyleTooltip, GdaTooltipDirective, GdaTooltipModule, GdaTooltipService };
 //# sourceMappingURL=gda-tooltip.mjs.map

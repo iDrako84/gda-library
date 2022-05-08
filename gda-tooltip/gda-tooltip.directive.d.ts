@@ -1,8 +1,10 @@
 import { ElementRef, OnChanges, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { GdaTooltipService } from './gda-tooltip.service';
 import * as i0 from "@angular/core";
 export declare class GdaTooltipDirective implements OnInit, OnChanges, OnDestroy {
     elementRef: ElementRef;
     private renderer;
+    private gdaTooltipService;
     /**
      * Testo
      */
@@ -14,16 +16,16 @@ export declare class GdaTooltipDirective implements OnInit, OnChanges, OnDestroy
     /**
      * Device
      */
-    isMobile: boolean;
+    private isMobile;
     /**
      * Span
      */
-    span: any;
+    private span;
     /**
      * Id
      */
-    id: number;
-    constructor(elementRef: ElementRef, renderer: Renderer2);
+    private id;
+    constructor(elementRef: ElementRef, renderer: Renderer2, gdaTooltipService: GdaTooltipService);
     /**
      * Cambio testo
      */

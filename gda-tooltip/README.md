@@ -1,24 +1,44 @@
-# GdaTooltip
+## GDA TOOLTIP
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Import the `GdaTooltipModule` module into your project.
 
-## Code scaffolding
+===========
 
-Run `ng generate component component-name --project gda-tooltip` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project gda-tooltip`.
-> Note: Don't forget to add `--project gda-tooltip` or else it will be added to the default project in your `angular.json` file. 
+You can use the gdaTooltip directive on any HTML tag.
 
-## Build
+#### Example
 
-Run `ng build gda-tooltip` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+<button type="button" [gdaTooltip]="'Test tooltip'">Click</button>
+```
 
-## Publishing
+===========
 
-After building your library with `ng build gda-tooltip`, go to the dist folder `cd dist/gda-tooltip` and run `npm publish`.
+If you want to use HTML tags it is possible to do so once you set the dataHtml (boolean) property to true (default: false).
 
-## Running unit tests
+#### Example
+```
+<button type="button" [gdaTooltip]="'<p>Test tooltip</p>'" [dataHtml]="true">Click</button>
+```
 
-Run `ng test gda-tooltip` to execute the unit tests via [Karma](https://karma-runner.github.io).
+===========
 
-## Further help
+The GdaTooltipService service provides the GdaTooltipDirective directive with some global style properties that can be modified, The GdaStyleTooltip model (which can be imported) defines the property within the service and can be modified individually, here is the list of style properties that can be modify.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- backgroundColor (default: `#999`)
+- color (default: `#fff`)
+- padding (default: `4px 12px`)
+- fontSize (default: `.8rem`)
+- borderRadius (default: `5px`)
+- zIndex (default: `10000`)
+
+To modify the styles, import the service into the main module.
+
+```
+export class AppModule { 
+
+  constructor(private gdaTooltipService: GdaTooltipService) {
+    this.gdaTooltipService.styleTooltip.backgroundColor = 'red';
+  }
+}
+```
