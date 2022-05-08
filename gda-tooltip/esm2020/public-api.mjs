@@ -1,0 +1,6 @@
+/*
+ * Public API Surface of gda-tooltip
+ */
+export * from './gda-tooltip.module';
+export * from './gda-tooltip.directive';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2dkYS10b29sdGlwL3NyYy9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyxzQkFBc0IsQ0FBQztBQUNyQyxjQUFjLHlCQUF5QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBnZGEtdG9vbHRpcFxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vZ2RhLXRvb2x0aXAubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vZ2RhLXRvb2x0aXAuZGlyZWN0aXZlJztcbiJdfQ==

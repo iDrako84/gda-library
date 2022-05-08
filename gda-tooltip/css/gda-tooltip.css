@@ -1,0 +1,66 @@
+/* GDA-TOOLTIP */
+.gda-tooltip-animation-scale {
+    -webkit-animation-name: scale;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: scale;
+    animation-duration: 1s;
+}
+
+.gda-tooltip-animation--reverse {
+    -webkit-animation-name: scaleReverse;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: scaleReverse;
+    animation-duration: 1s;
+}
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes scale {
+    from {
+        -webkit-transform: scale(0);
+    }
+
+    to {
+        -webkit-transform: scale(1);
+    }
+}
+
+/* Standard syntax */
+
+@keyframes scale {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes scaleReverse {
+    from {
+        -webkit-transform: scale(1);
+    }
+
+    to {
+        -webkit-transform: scale(0);
+    }
+}
+
+/* Standard syntax */
+
+@keyframes scaleReverse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
