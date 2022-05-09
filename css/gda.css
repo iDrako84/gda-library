@@ -234,10 +234,38 @@
 .gda-toast {
     position: fixed;
     width: 320px;
-    top: 1rem;
-    right: 1rem;
     padding: 1rem;
     z-index: 10000;
+}
+
+.gda-toast-top-left {
+    top: 1rem;
+    left: 1rem;
+}
+
+.gda-toast-top-center {
+    top: 1rem;
+    left: calc(50% - 160px);
+}
+
+.gda-toast-top-right {
+    top: 1rem;
+    right: 1rem;
+}
+
+.gda-toast-bottom-left {
+    left: 1rem;
+    bottom: 1rem;
+}
+
+.gda-toast-bottom-center {
+    left: calc(50% - 160px);
+    bottom: 1rem;
+}
+
+.gda-toast-bottom-right {
+    right: 1rem;
+    bottom: 1rem;
 }
 
 .gda-toast-item {
@@ -248,7 +276,7 @@
     margin-bottom: 1rem;
     background-color: #333;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1rem;
     box-shadow: 5px 5px 6px #888;
     overflow: hidden;
     cursor: pointer;
