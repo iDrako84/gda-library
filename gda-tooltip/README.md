@@ -2,6 +2,14 @@
 
 Import the `GdaTooltipModule` module into your project.
 
+```
+imports: [
+    ...
+    GdaTooltipModule,
+    ...
+]
+```
+
 ===========
 
 You can use the gdaTooltip directive on any HTML tag.
