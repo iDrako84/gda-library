@@ -42,6 +42,53 @@ It is also necessary to import the css file globally, it is possible to import t
 
 ===========================================
 
+## GDA BUTTON
+
+Import the `GdaButtonModule` module into your project.
+
+```
+imports: [
+    ...
+    GdaButtonModule,
+    ...
+]
+```
+
+===========
+
+You can use the gdaButton directive on button and a.
+
+```
+<button type="button" gdaButton>Click</button>
+```
+
+The directive has 4 default styles:
+
+- primary
+- success
+- warning
+- danger
+
+you can pass the style to the `color` property:
+
+```
+<button type="button" gdaButton [color]="primary">Click</button>
+```
+
+The directive enables a click animation by default, it can be disabled using the `animationEnabled` property:
+
+```
+<button type="button" gdaButton [animationEnabled]="false">Click</button>
+```
+
+Animations can be blocked globally by the `GdaButtonService` service (the property value that is passed to the directive will always have priority):
+
+```
+constructor(private gdaButtonService: GdaButtonService) {
+    this.gdaButtonService.animationEnabled = false;
+}
+```
+
 ## GDA TOAST
 
 Import the `GdaToastModule` module into your project.
@@ -57,8 +104,6 @@ imports: [
 ===========
 
 To use Toast you need to import the GdaToast service.
-
-#### Example
 
 ```
 constructor(private gdaToast: GdaToast) { 
@@ -87,15 +132,12 @@ it is possible to add an additional configuration to the method, the model can b
 
 `styleToast` determines the additional styles.
 
-#### Example
-
 ```
 config.styleToast = {backgroundColor: 'red', color: 'white'};
 ```
 
 `timing` determines the duration time of the toast, if you pass `indeterminate` the toast will ask once you click on it.
 
-#### Example
 
 ```
 const config: GdaToastConfig = new GdaToastConfig();
@@ -119,8 +161,6 @@ constructor(private gdaToast: GdaToast) {
 }
 ```
 
-===========================================
-
 ## GDA TOOLTIP
 
 Import the `GdaTooltipModule` module into your project.
@@ -137,8 +177,6 @@ imports: [
 
 You can use the gdaTooltip directive on any HTML tag.
 
-#### Example
-
 ```
 <button type="button" [gdaTooltip]="'Test tooltip'">Click</button>
 ```
@@ -147,7 +185,6 @@ You can use the gdaTooltip directive on any HTML tag.
 
 If you want to use HTML tags it is possible to do so once you set the dataHtml (boolean) property to true (default: false).
 
-#### Example
 ```
 <button type="button" [gdaTooltip]="'<p>Test tooltip</p>'" [dataHtml]="true">Click</button>
 ```
@@ -165,8 +202,6 @@ The GdaTooltipService service provides the GdaTooltipDirective directive with so
 
 To modify the styles, import the service into the main module.
 
-#### Example
-
 ```
 export class AppModule { 
 
@@ -175,3 +210,4 @@ export class AppModule {
   }
 }
 ```
+

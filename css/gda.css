@@ -1,3 +1,51 @@
+/* GDA-BUTTON */
+.gda-button {
+    position: relative;
+    padding: .75rem 1.5rem;
+    box-shadow: 0 0 rgba(0, 0, 0, 0.3);
+    border: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.gda-button:disabled {
+    opacity: 0.3;
+}
+
+.gda-bg-primary {
+    background-color: #1E90FF !important;
+    color: #fff !important;
+}
+
+.gda-bg-success {
+    background-color: #5cb85c !important;
+    color: #fff !important;
+}
+
+.gda-bg-warning {
+    background-color: #ffc107 !important;
+    color: #fff !important;
+}
+
+.gda-bg-danger {
+    background-color: #D81702 !important;
+    color: #fff !important;
+}
+
+@-webkit-keyframes gda-button-ripple {
+    to {
+        -webkit-transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+@keyframes gda-button-ripple {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
 /* GDA-TOAST */
 .gda-toast {
     position: fixed;

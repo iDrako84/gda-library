@@ -14,8 +14,6 @@ imports: [
 
 You can use the gdaTooltip directive on any HTML tag.
 
-#### Example
-
 ```
 <button type="button" [gdaTooltip]="'Test tooltip'">Click</button>
 ```
@@ -24,7 +22,6 @@ You can use the gdaTooltip directive on any HTML tag.
 
 If you want to use HTML tags it is possible to do so once you set the dataHtml (boolean) property to true (default: false).
 
-#### Example
 ```
 <button type="button" [gdaTooltip]="'<p>Test tooltip</p>'" [dataHtml]="true">Click</button>
 ```
@@ -42,8 +39,6 @@ The GdaTooltipService service provides the GdaTooltipDirective directive with so
 
 To modify the styles, import the service into the main module.
 
-#### Example
-
 ```
 export class AppModule { 
 
@@ -52,3 +47,4 @@ export class AppModule {
   }
 }
 ```
+

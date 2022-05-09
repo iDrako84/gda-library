@@ -14,8 +14,6 @@ imports: [
 
 To use Toast you need to import the GdaToast service.
 
-#### Example
-
 ```
 constructor(private gdaToast: GdaToast) { 
     ...
@@ -43,15 +41,12 @@ it is possible to add an additional configuration to the method, the model can b
 
 `styleToast` determines the additional styles.
 
-#### Example
-
 ```
 config.styleToast = {backgroundColor: 'red', color: 'white'};
 ```
 
 `timing` determines the duration time of the toast, if you pass `indeterminate` the toast will ask once you click on it.
 
-#### Example
 
 ```
 const config: GdaToastConfig = new GdaToastConfig();
@@ -74,3 +69,4 @@ constructor(private gdaToast: GdaToast) {
     this.gdaToast.toastConfigDefault = config;
 }
 ```
+
