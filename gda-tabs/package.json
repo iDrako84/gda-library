@@ -1,0 +1,31 @@
+{
+  "name": "gda-tabs",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/gda-tabs.mjs",
+  "es2020": "fesm2020/gda-tabs.mjs",
+  "esm2020": "esm2020/gda-tabs.mjs",
+  "fesm2020": "fesm2020/gda-tabs.mjs",
+  "fesm2015": "fesm2015/gda-tabs.mjs",
+  "typings": "gda-tabs.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./gda-tabs.d.ts",
+      "esm2020": "./esm2020/gda-tabs.mjs",
+      "es2020": "./fesm2020/gda-tabs.mjs",
+      "es2015": "./fesm2015/gda-tabs.mjs",
+      "node": "./fesm2015/gda-tabs.mjs",
+      "default": "./fesm2020/gda-tabs.mjs"
+    }
+  },
+  "sideEffects": false
+}
