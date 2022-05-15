@@ -8,7 +8,7 @@
     animation-duration: 1s;
 }
 
-.gda-tooltip-animation--reverse {
+.gda-tooltip-animation-reverse {
     -webkit-animation-name: scaleReverse;
     /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s;

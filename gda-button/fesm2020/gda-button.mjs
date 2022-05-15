@@ -32,10 +32,10 @@ class GdaButtonDirective {
     get setClass() {
         return {
             'gda-button': true,
-            'gda-bg-primary': this.setClassPrimary,
-            'gda-bg-success': this.setClassSuccess,
-            'gda-bg-warning': this.setClassWarning,
-            'gda-bg-danger': this.setClassDanger
+            'gda-button-primary': this.setClassPrimary,
+            'gda-button-success': this.setClassSuccess,
+            'gda-button-warning': this.setClassWarning,
+            'gda-button-danger': this.setClassDanger
         };
     }
     ;
@@ -75,7 +75,7 @@ class GdaButtonDirective {
         div.style.left = e.clientX - rect.left - d / 2 + 'px';
         div.style.top = e.clientY - rect.top - d / 2 + 'px';
         div.style.borderRadius = '50%';
-        div.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+        div.style.backgroundColor = 'rgb(255, 255, 255)';
         div.style.position = 'absolute';
         div.style.WebkitTransform = 'scale(0)';
         div.style.transform = 'scale(0)';

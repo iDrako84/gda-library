@@ -40,6 +40,8 @@ The directive enables a click animation by default, it can be disabled using the
 Animations can be blocked globally by the `GdaButtonService` service (the property value that is passed to the directive will always have priority):
 
 ```
+import { GdaButtonService } from 'gda-button';
+...
 constructor(private gdaButtonService: GdaButtonService) {
     this.gdaButtonService.animationEnabled = false;
 }

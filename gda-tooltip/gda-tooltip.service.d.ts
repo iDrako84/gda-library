@@ -6,7 +6,7 @@ export declare class GdaStyleTooltip {
     fontSize: string;
     borderRadius: string;
     zIndex: string;
-    constructor(backgroundColor: string, color: string, padding: string, fontSize: string, borderRadius: string, zIndex: string);
+    constructor(backgroundColor?: string, color?: string, padding?: string, fontSize?: string, borderRadius?: string, zIndex?: string);
 }
 export declare class GdaTooltipService {
     /**

@@ -10,10 +10,10 @@ export declare class GdaButtonDirective {
      */
     get setClass(): {
         'gda-button': boolean;
-        'gda-bg-primary': boolean;
-        'gda-bg-success': boolean;
-        'gda-bg-warning': boolean;
-        'gda-bg-danger': boolean;
+        'gda-button-primary': boolean;
+        'gda-button-success': boolean;
+        'gda-button-warning': boolean;
+        'gda-button-danger': boolean;
     };
     private setClassPrimary;
     private setClassSuccess;

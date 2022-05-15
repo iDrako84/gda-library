@@ -2,7 +2,7 @@ import * as i0 from '@angular/core';
 import { Injectable, Directive, Input, HostListener, NgModule } from '@angular/core';
 
 class GdaStyleTooltip {
-    constructor(backgroundColor, color, padding, fontSize, borderRadius, zIndex) {
+    constructor(backgroundColor = '#999', color = '#fff', padding = '4px 12px', fontSize = '.8rem', borderRadius = '5px', zIndex = '10000') {
         this.backgroundColor = backgroundColor;
         this.color = color;
         this.padding = padding;
@@ -13,14 +13,7 @@ class GdaStyleTooltip {
 }
 class GdaTooltipService {
     constructor() {
-        this.styleTooltip = {
-            backgroundColor: '#999',
-            color: '#fff',
-            padding: '4px 12px',
-            fontSize: '.8rem',
-            borderRadius: '5px',
-            zIndex: '10000',
-        };
+        this.styleTooltip = new GdaStyleTooltip();
     }
 }
 GdaTooltipService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaTooltipService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
@@ -110,7 +103,7 @@ class GdaTooltipDirective {
     mouseleave(eventData) {
         if (this.span && !this.isMobile && this.gdaTooltip !== '') {
             this.renderer.removeClass(this.span, 'gda-tooltip-animation-scale');
-            this.renderer.addClass(this.span, 'gda-tooltip-animation-scale-reverse');
+            this.renderer.addClass(this.span, 'gda-tooltip-animation-reverse');
             setTimeout(() => {
                 // this.renderer.setStyle(this.span, 'display', 'none');
                 if (this.elementRef.nativeElement.ownerDocument.body.querySelector('#gda-tooltip-' + this.id)) {
