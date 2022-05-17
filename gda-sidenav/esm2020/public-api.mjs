@@ -1,0 +1,8 @@
+/*
+ * Public API Surface of gda-sidenav
+ */
+export * from './gda-sidenav.service';
+export * from './gda-sidenav-header.component';
+export * from './gda-sidenav.component';
+export * from './gda-sidenav.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2dkYS1zaWRlbmF2L3NyYy9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyx1QkFBdUIsQ0FBQztBQUN0QyxjQUFjLGdDQUFnQyxDQUFDO0FBQy9DLGNBQWMseUJBQXlCLENBQUM7QUFDeEMsY0FBYyxzQkFBc0IsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgZ2RhLXNpZGVuYXZcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2dkYS1zaWRlbmF2LnNlcnZpY2UnO1xuZXhwb3J0ICogZnJvbSAnLi9nZGEtc2lkZW5hdi1oZWFkZXIuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vZ2RhLXNpZGVuYXYuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vZ2RhLXNpZGVuYXYubW9kdWxlJztcbiJdfQ==

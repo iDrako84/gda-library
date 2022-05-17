@@ -23,6 +23,7 @@ export declare class GdaTabsComponent implements AfterViewInit, OnDestroy {
      */
     get setStyle(): {
         'min-height': string;
+        visibility: string;
     };
     /**
      * Element tabContent
@@ -71,6 +72,10 @@ export declare class GdaTabsComponent implements AfterViewInit, OnDestroy {
      * Bottoni tabs
      */
     buttons: ButtonTabModel[];
+    /**
+     * Button disabled
+     */
+    buttonDisabled: boolean;
     /**
      * Lunghezza dei bottoni
      */

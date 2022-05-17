@@ -1,9 +1,9 @@
 import * as i0 from '@angular/core';
 import { Injectable, EventEmitter, Component, HostBinding, ViewChild, Input, ViewChildren, Output, NgModule } from '@angular/core';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
+import { of, delay, Subscription } from 'rxjs';
 import * as i3 from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
 
 class GdaTabsStyleStatusModel {
     constructor(backgroundColor, color) {
@@ -121,12 +121,15 @@ class GdaTabComponent {
             else {
                 this.animations = false;
             }
-            setTimeout(() => {
+            of(true).pipe(delay(0)).subscribe(() => {
                 this.enabled = (this.button?.active);
-                setTimeout(() => {
+                of(true).pipe(delay(0)).subscribe(() => {
+                    if (this.contentEl?.nativeElement) {
+                        this.tabsService.heightTabActive = this.contentEl.nativeElement.offsetHeight;
+                    }
                     this.animations = false;
-                }, 0);
-            }, 0);
+                });
+            });
         });
         this.sub2 = this.tabsService.tabsReloaded.subscribe(() => {
             this.id = +this.elementRef.nativeElement.getAttribute('data-gda-tab');
@@ -166,11 +169,6 @@ class GdaTabComponent {
             this.animations = true;
         }
     }
-    ngAfterContentChecked() {
-        if (this.contentEl?.nativeElement) {
-            this.tabsService.heightTabActive = this.contentEl.nativeElement.offsetHeight;
-        }
-    }
     ngAfterViewInit() {
         const parent = this.renderer.parentNode(this.elementRef.nativeElement);
         parent.querySelectorAll('gda-tab').forEach((e, i) => {
@@ -180,11 +178,14 @@ class GdaTabComponent {
         const button = new ButtonTabModel$1(this.id, this.titleTab, this.tabsService.buttons.some((button) => button.active) ? false : this.isOpen);
         this.tabsService.buttons.push(button);
         if (button.active) {
-            setTimeout(() => {
+            of(true).pipe(delay(0)).subscribe(() => {
                 this.enabled = true;
                 this.tabsService.buttonActivatedVal = button;
                 this.tabsService.preventTabs = this.id;
             });
+            if (this.contentEl?.nativeElement) {
+                this.tabsService.heightTabActive = this.contentEl.nativeElement.offsetHeight;
+            }
         }
         this.button = button;
         this.tabsService.buttons.sort((a, b) => {
@@ -348,6 +349,7 @@ class GdaTabsComponent {
         this.sub1 = new Subscription();
         this.sub2 = new Subscription();
         this.tabsLoaded = false;
+        this.buttonDisabled = false;
         window.onresize = () => {
             this.getArrow('control');
             this.enabledMouseWheel = this.getArrow('return');
@@ -359,7 +361,7 @@ class GdaTabsComponent {
     get setStyle() {
         return {
             'min-height': ((this.tabContentEl?.nativeElement?.offsetHeight || 0) + this.tabsService.heightTabActive) + 'px',
-            /* 'transition': this.tabsLoaded ? 'min-height .5s ease-in-out' : 'min-height .0s ease-in-out' */
+            'visibility': this.tabsLoaded ? 'visible' : 'hidden'
         };
     }
     /**
@@ -370,7 +372,7 @@ class GdaTabsComponent {
     }
     ;
     set indexTab(val) {
-        setTimeout(() => {
+        of(true).pipe(delay(0)).subscribe(() => {
             this.indexTabVal = val;
             if (this.buttons.length && this.buttons[val] && !this.buttons[val].active) {
                 this.tabsService.preventTabs = this.buttons.find((button) => button.active)?.id || 0;
@@ -393,9 +395,12 @@ class GdaTabsComponent {
         this.sub2 = this.tabsService.buttonActivated.subscribe(() => {
             this.buttons = [...this.tabsService.buttons];
         });
+        of(true).pipe(delay(500)).subscribe(() => {
+            this.renderer.setStyle(this.elementRef.nativeElement, 'transition', 'min-height .3s ease-in-out');
+        });
     }
     loadButtons(reload = false) {
-        setTimeout(() => {
+        of(true).pipe(delay(0)).subscribe(() => {
             if (!this.buttons.length) {
                 reload = false;
                 this.tabsService.loadComplete = false;
@@ -440,7 +445,7 @@ class GdaTabsComponent {
                 if (this.indexTabVal !== (this.buttons.find((button) => button.active)?.id || 0)) {
                     this.indexTabActivated.emit(this.buttons.find((button) => button.active)?.id || 0);
                 }
-                setTimeout(() => {
+                of(true).pipe(delay(0)).subscribe(() => {
                     const buttonEl = this.tab.nativeElement.querySelectorAll('button');
                     for (const button of buttonEl) {
                         this.lengthButtons = this.lengthButtons + button.offsetWidth;
@@ -456,7 +461,7 @@ class GdaTabsComponent {
                       this.tabsService.buttonActivated.emit(this.buttons.find((button: ButtonTabModel) => button.active));
                     } */
                     this.tabsLoaded = true;
-                }, 0);
+                });
             }
             else {
                 if (this.tabContentEl?.nativeElement) {
@@ -508,40 +513,46 @@ class GdaTabsComponent {
      * Selezione del tab
      */
     setTab(event, buttonEl, i) {
-        if (event) {
-            this.indexTabActivated.emit(i);
-        }
-        this.indexTabVal = i;
-        setTimeout(() => {
-            if (this.elementRef.nativeElement.querySelectorAll('gda-tab')[i]) {
-                if (event) {
-                    event?.stopPropagation();
-                    this.animateRipple(event, this.buttonsEl.toArray()[i]);
-                }
-                this.tabsService.preventTabs = this.buttons.find((button) => button.active === true)?.id || 0;
-                this.buttons.map((button, i) => {
-                    button.active = (button.id === buttonEl.id);
-                    if (event) {
-                        this.tabsService.buttons[i].active = (button.id === buttonEl.id);
-                    }
-                });
-                this.getArrow('control');
-                // this.initSetBar();
-                this.tabsService.buttonActivated.emit(buttonEl);
-                if (this.getArrow('return')) {
-                    const position = this.tab.nativeElement.getBoundingClientRect();
-                    const partContent = this.tab.nativeElement.offsetWidth / 4;
-                    if (event) {
-                        if (partContent > event.clientX - position.left) {
-                            this.animationScroll('back');
-                        }
-                        else if ((partContent * 3) < event.clientX - position.left) {
-                            this.animationScroll('forward');
-                        }
-                    }
-                }
+        if (!this.buttonDisabled) {
+            this.buttonDisabled = true;
+            of(true).pipe(delay(500)).subscribe(() => {
+                this.buttonDisabled = false;
+            });
+            if (event) {
+                this.indexTabActivated.emit(i);
             }
-        });
+            this.indexTabVal = i;
+            of(true).pipe(delay(0)).subscribe(() => {
+                if (this.elementRef.nativeElement.querySelectorAll('gda-tab')[i]) {
+                    if (event) {
+                        event?.stopPropagation();
+                        this.animateRipple(event, this.buttonsEl.toArray()[i]);
+                    }
+                    this.tabsService.preventTabs = this.buttons.find((button) => button.active === true)?.id || 0;
+                    this.buttons.map((button, i) => {
+                        button.active = (button.id === buttonEl.id);
+                        if (event) {
+                            this.tabsService.buttons[i].active = (button.id === buttonEl.id);
+                        }
+                    });
+                    this.getArrow('control');
+                    // this.initSetBar();
+                    this.tabsService.buttonActivated.emit(buttonEl);
+                    if (this.getArrow('return')) {
+                        const position = this.tab.nativeElement.getBoundingClientRect();
+                        const partContent = this.tab.nativeElement.offsetWidth / 4;
+                        if (event) {
+                            if (partContent > event.clientX - position.left) {
+                                this.animationScroll('back');
+                            }
+                            else if ((partContent * 3) < event.clientX - position.left) {
+                                this.animationScroll('forward');
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
     /**
      * Click sulla freccia
@@ -624,9 +635,9 @@ class GdaTabsComponent {
             div.style.transform = 'scale(0)';
             div.style.WebkitAnimation = 'gda-tabs-ripple 300ms linear';
             div.style.animation = 'gda-tabs-ripple 300ms linear';
-            setTimeout(() => {
+            of(true).pipe(delay(400)).subscribe(() => {
                 this.renderer.removeChild(el.nativeElement, div);
-            }, 400);
+            });
         }
     }
     getStyleContent() {

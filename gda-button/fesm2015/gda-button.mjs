@@ -1,5 +1,6 @@
 import * as i0 from '@angular/core';
 import { Injectable, Directive, HostBinding, Input, HostListener, NgModule } from '@angular/core';
+import { of, delay } from 'rxjs';
 
 class GdaButtonService {
     constructor() {
@@ -81,9 +82,9 @@ class GdaButtonDirective {
         div.style.transform = 'scale(0)';
         div.style.WebkitAnimation = 'gda-button-ripple 300ms linear';
         div.style.animation = 'gda-button-ripple 300ms linear';
-        setTimeout(() => {
+        of(true).pipe(delay(400)).subscribe(() => {
             this.renderer.removeChild(el.nativeElement, div);
-        }, 400);
+        });
     }
 }
 GdaButtonDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.6", ngImport: i0, type: GdaButtonDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaButtonService }], target: i0.ɵɵFactoryTarget.Directive });

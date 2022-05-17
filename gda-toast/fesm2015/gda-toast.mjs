@@ -3,6 +3,7 @@ import { EventEmitter, Component, HostBinding, Input, Output, Injectable, NgModu
 import { trigger, transition, style, animate } from '@angular/animations';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { of, delay } from 'rxjs';
 
 class GdaToastConfig$1 {
     constructor(direction = 'top-right', classToast = '', styleToast = {}, timing = 3000) {
@@ -179,27 +180,27 @@ class GdaToast {
         };
         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.push({ text: text, config: c });
         if (c.timing !== 'indeterminate') {
-            setTimeout(() => {
+            of(true).pipe(delay(c.timing || 0)).subscribe(() => {
                 this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts = this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.filter((toast) => toast.config.id !== c.id);
-                setTimeout(() => {
+                of(true).pipe(delay(500)).subscribe(() => {
                     if (!this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.length) {
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.unsubscribe();
                         this.appRef.detachView(this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].hostView);
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].destroy();
                     }
-                }, 500);
-            }, c.timing);
+                });
+            });
         }
         else {
             this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.subscribe((id) => {
                 this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts = this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.filter((toast) => toast.config.id !== id);
-                setTimeout(() => {
+                of(true).pipe(delay(500)).subscribe(() => {
                     if (!this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.length) {
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.unsubscribe();
                         this.appRef.detachView(this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].hostView);
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].destroy();
                     }
-                }, 500);
+                });
             });
         }
     }

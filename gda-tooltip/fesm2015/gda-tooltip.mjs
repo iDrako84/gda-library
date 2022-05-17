@@ -1,5 +1,6 @@
 import * as i0 from '@angular/core';
 import { Injectable, Directive, Input, HostListener, NgModule } from '@angular/core';
+import { of, delay } from 'rxjs';
 
 class GdaStyleTooltip {
     constructor(backgroundColor = '#999', color = '#fff', padding = '4px 12px', fontSize = '.8rem', borderRadius = '5px', zIndex = '10000') {
@@ -104,13 +105,13 @@ class GdaTooltipDirective {
         if (this.span && !this.isMobile && this.gdaTooltip !== '') {
             this.renderer.removeClass(this.span, 'gda-tooltip-animation-scale');
             this.renderer.addClass(this.span, 'gda-tooltip-animation-reverse');
-            setTimeout(() => {
+            of(true).pipe(delay(100)).subscribe(() => {
                 // this.renderer.setStyle(this.span, 'display', 'none');
                 if (this.elementRef.nativeElement.ownerDocument.body.querySelector('#gda-tooltip-' + this.id)) {
                     this.renderer.removeChild(this.elementRef.nativeElement.ownerDocument.body, this.span);
                     this.span = null;
                 }
-            }, 100);
+            });
         }
     }
     mobileAndTabletCheck() {
