@@ -1,6 +1,6 @@
 {
   "name": "gda-toast",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0"
@@ -13,13 +13,13 @@
   "esm2020": "esm2020/gda-toast.mjs",
   "fesm2020": "fesm2020/gda-toast.mjs",
   "fesm2015": "fesm2015/gda-toast.mjs",
-  "typings": "gda-toast.d.ts",
+  "typings": "index.d.ts",
   "exports": {
     "./package.json": {
       "default": "./package.json"
     },
     ".": {
-      "types": "./gda-toast.d.ts",
+      "types": "./index.d.ts",
       "esm2020": "./esm2020/gda-toast.mjs",
       "es2020": "./fesm2020/gda-toast.mjs",
       "es2015": "./fesm2015/gda-toast.mjs",

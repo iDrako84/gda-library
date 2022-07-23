@@ -12,8 +12,17 @@
     height: 100%;
     overflow-x: hidden;
     white-space: nowrap;
-    transition: width .2s ease-in-out;
-    z-index: 20
+    z-index: 20;
+}
+
+.gda-sidenav .backdoor {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 19;
 }
 
 .gda-sidenav .gda-container-header {

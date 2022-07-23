@@ -1,6 +1,6 @@
 {
   "name": "gda-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0"
@@ -13,13 +13,13 @@
   "esm2020": "esm2020/gda-button.mjs",
   "fesm2020": "fesm2020/gda-button.mjs",
   "fesm2015": "fesm2015/gda-button.mjs",
-  "typings": "gda-button.d.ts",
+  "typings": "index.d.ts",
   "exports": {
     "./package.json": {
       "default": "./package.json"
     },
     ".": {
-      "types": "./gda-button.d.ts",
+      "types": "./index.d.ts",
       "esm2020": "./esm2020/gda-button.mjs",
       "es2020": "./fesm2020/gda-button.mjs",
       "es2015": "./fesm2015/gda-button.mjs",

@@ -1,7 +1,7 @@
-import { ElementRef, OnChanges, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { ElementRef, OnChanges, OnDestroy, Renderer2 } from '@angular/core';
 import { GdaTooltipService } from './gda-tooltip.service';
 import * as i0 from "@angular/core";
-export declare class GdaTooltipDirective implements OnInit, OnChanges, OnDestroy {
+export declare class GdaTooltipDirective implements OnChanges, OnDestroy {
     elementRef: ElementRef;
     private renderer;
     private gdaTooltipService;
@@ -31,10 +31,6 @@ export declare class GdaTooltipDirective implements OnInit, OnChanges, OnDestroy
      */
     ngOnChanges(): void;
     /**
-     * Controllo
-     */
-    ngOnInit(): void;
-    /**
      * Crea il tooltip
      */
     private createTooltip;
@@ -46,11 +42,11 @@ export declare class GdaTooltipDirective implements OnInit, OnChanges, OnDestroy
      * Mouse over
      */
     mouseleave(eventData: Event): void;
-    private mobileAndTabletCheck;
+    mobileAndTabletCheck(): boolean;
     /**
      * Distrugge i tooltip
      */
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTooltipDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltipDirective, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltipDirective, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never, never, false>;
 }

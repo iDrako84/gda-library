@@ -1,150 +1,51 @@
-import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, QueryList, Renderer2, TemplateRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnDestroy, QueryList, Renderer2, SimpleChanges, TemplateRef } from '@angular/core';
+import { GdaTabsPrivateService } from './gda-tabs-private.service';
 import { GdaTabsService } from './gda-tabs.service';
-import { TabsService } from './tabs.service';
 import { GdaTabsStyleModel } from './gda-tabs-style.model';
 import * as i0 from "@angular/core";
-declare class ButtonTabModel {
-    id: number;
+declare class ListTabsModel {
+    position: number;
     title: string | TemplateRef<any> | any;
-    active: boolean;
-    constructor(id?: number, title?: string | TemplateRef<any> | any, active?: boolean);
+    constructor(position: number, title: string | TemplateRef<any>);
 }
-export declare class GdaTabsComponent implements AfterViewInit, OnDestroy {
-    private gdaTabsServiceService;
-    private elementRef;
-    private tabsService;
+export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDestroy {
+    private cd;
     private renderer;
-    /**
-     * Class
-     */
-    setClass: boolean;
-    /**
-     * Style
-     */
-    get setStyle(): {
-        'min-height': string;
-        visibility: string;
-    };
-    /**
-     * Element tabContent
-     */
-    tabContentEl: ElementRef;
-    /**
-     * Element tab
-     */
-    tab: ElementRef;
-    /**
-     * Element content
-     */
-    content: ElementRef;
-    /**
-     * Arrow
-     */
-    arrowBackEl: ElementRef;
-    arrowForwardEl: ElementRef;
-    /**
-     * Element buttons
-     */
-    buttonsEl: QueryList<ElementRef>;
-    /**
-     * Element bar
-     */
-    bar: QueryList<ElementRef>;
-    /**
-     * Button style
-     */
-    tabStyle: GdaTabsStyleModel;
-    /**
-     * Button style
-     */
+    private gdaTabsPrivateService;
+    private gdaTabsService;
+    protected setClass: string;
+    protected buttonEl: QueryList<ElementRef>;
+    protected tabsHeaderContentEl: ElementRef;
+    protected buttonsTabEl: ElementRef;
+    protected arrowBackEl: ElementRef;
+    protected arrowForwardEl: ElementRef;
+    protected tabsContentEl: ElementRef;
+    indexTab: number;
+    private buttons;
     set animation(val: boolean);
-    /**
-     * Index Tab Activated
-     */
-    indexTabVal: number;
-    set indexTab(val: number);
-    get indexTab(): number;
-    /**
-     * Index Tab Activated
-     */
+    tabStyle: GdaTabsStyleModel;
     indexTabActivated: EventEmitter<number>;
-    /**
-     * Bottoni tabs
-     */
-    buttons: ButtonTabModel[];
-    /**
-     * Button disabled
-     */
-    buttonDisabled: boolean;
-    /**
-     * Lunghezza dei bottoni
-     */
-    private lengthButtons;
-    /**
-     * Step per l'animazione
-     */
     private step;
-    /**
-     * Abilita i movimenti della rotellina
-     */
-    enabledMouseWheel: boolean;
-    /**
-     * Arrow
-     */
-    viewArrow: boolean;
-    /**
-     * Subscription
-     */
+    protected viewArrow: boolean;
     private sub1;
     private sub2;
-    /**
-     * Tab loaded
-     */
-    tabsLoaded: boolean;
-    constructor(gdaTabsServiceService: GdaTabsService, elementRef: ElementRef, tabsService: TabsService, renderer: Renderer2);
+    constructor(cd: ChangeDetectorRef, renderer: Renderer2, gdaTabsPrivateService: GdaTabsPrivateService, gdaTabsService: GdaTabsService);
+    ngOnChanges(changes: SimpleChanges | any): void;
     ngAfterViewInit(): void;
-    private loadButtons;
-    /**
-     * Visualizza/togli le freccie
-     */
-    private getArrow;
-    getContentButton(): {
-        width: string;
-        marginLeft: number | string;
-    };
-    /**
-     * Selezione del tab
-     */
-    setTab(event: MouseEvent | null, buttonEl: ButtonTabModel, i: number): void;
-    /**
-     * Click sulla freccia
-     */
-    arrow(event: MouseEvent | WheelEvent | any, arrow: 'back' | 'forward'): void;
-    mouseWheel(event: WheelEvent | any): void;
-    /**
-     * Animazione dello scrol
-     */
+    protected getButtons(): ListTabsModel[];
+    protected onSelectedTab(e: MouseEvent | null, index: number): void;
+    protected getIndexTab(): number;
+    protected arrow(event: MouseEvent | WheelEvent | any, arrow: 0 | 1): void;
     private animationScroll;
-    getClass(button: ButtonTabModel): {
-        active: boolean;
-    };
-    getStyleBar(): {
-        backgroundColor: string;
-    };
-    /**
-     * Style bottone
-     * @param button tipo bottone
-     */
-    getStyleButton(button: ButtonTabModel): {
+    protected mouseWheel(event: WheelEvent | any): void;
+    private getArrow;
+    protected getStyleButton(active: boolean): {
         backgroundColor: string;
         color: string;
     };
     private animateRipple;
-    getStyleContent(): {
-        top: string;
-    };
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTabsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabsComponent, "gda-tabs", never, { "tabStyle": "tabStyle"; "animation": "animation"; "indexTab": "indexTab"; }, { "indexTabActivated": "indexTabActivated"; }, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabsComponent, "gda-tabs", never, { "indexTab": "indexTab"; "animation": "animation"; "tabStyle": "tabStyle"; }, { "indexTabActivated": "indexTabActivated"; }, never, ["*"], false>;
 }
 export {};

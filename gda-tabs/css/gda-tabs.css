@@ -1,39 +1,19 @@
 /* GDA TABS */
-.gda-tabs {
-    position: relative;
-    float: left;
-    width: 100%;
-    visibility: hidden;
-}
-
-.gda-tab {
+.gda-tabs,
+.gda-tabs-button-container {
     position: relative;
     float: left;
     width: 100%;
 }
 
-.gda-tabs .gda-tab-buttons {
+.gda-tabs .gda-tabs-content {
     position: relative;
     width: 100%;
     float: left;
-    overflow: hidden;
-    border: none;
-    background-color: transparent;
+    overflow-x: clip;
 }
 
-.gda-tabs .gda-tab-buttons .gda-content-buttons {
-    position: relative;
-    width: 100%;
-    float: left;
-    margin-left: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    white-space: nowrap;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-}
-
-.gda-tabs .gda-tab-buttons .gda-arrow-tabs {
+.gda-tabs .gda-tabs-button-container .gda-arrow-tabs {
     position: absolute;
     background-color: #fff;
     width: 5%;
@@ -48,15 +28,27 @@
     z-index: 2;
 }
 
-.gda-tabs .gda-tab-buttons .gda-arrow-tabs.gda-arrow-tabs-back {
+.gda-tabs .gda-tabs-button-container .gda-arrow-tabs.gda-arrow-tabs-back {
     left: 0;
 }
 
-.gda-tabs .gda-tab-buttons .gda-arrow-tabs.gda-arrow-tabs-forward {
+.gda-tabs .gda-tabs-button-container .gda-arrow-tabs.gda-arrow-tabs-forward {
     right: 0;
 }
 
-.gda-tabs .gda-tab-buttons .gda-button-tab {
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    white-space: nowrap;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button {
     position: relative;
     color: #000;
     border: none;
@@ -66,46 +58,31 @@
     padding: 14px 16px;
 }
 
-.gda-tabs .gda-tab-buttons .gda-button-tab.active {
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button:nth-child(1) {
+    border-top-left-radius: 0.5rem;
+}
+
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button:last-child {
+    border-top-right-radius: 0.5rem;
+}
+
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button.active {
     color: #fff;
 }
 
-.gda-tabs .gda-tab-buttons .gda-button-tab.active .gda-tabs-bar {
-    width: 100% !important;
-    left: 0 !important;
-    opacity: 1 !important;
+.gda-tabs .gda-tabs-button-container.gda-tabs-resize .gda-tabs-button-container-tab {
+    width: 90%;
+    left: 5%;
 }
 
-.gda-tabs .gda-tab-buttons .gda-button-tab .gda-tabs-bar {
+.gda-tabs .gda-tab {
     position: absolute;
-    width: 0;
-    left: 50%;
-    height: 4px;
-    bottom: 0;
-    opacity: 0.3;
-}
-
-.gda-tabs .gda-tab-buttons .gda-button-tab:hover .gda-tabs-bar {
-    width: 80%;
-    left: 10%;
-}
-
-.gda-tabs .gda-tab-buttons .gda-button-tab:first-child {
-    border-top-left-radius: .5rem;
-}
-
-.gda-tabs .gda-tab-buttons .gda-button-tab:last-child {
-    border-top-right-radius: .5rem;
-}
-
-.gda-tabs .gda-content-tab {
-    position: relative;
     width: 100%;
-    overflow-x: clip;
+    float: left;
 }
 
-.gda-tab-content {
-    position: relative;
+.gda-tabs .gda-tab .gda-tabs-tab-content {
+    position: absolute;
     float: left;
     left: 0;
     top: 0;

@@ -9,15 +9,19 @@ export declare class GdaSidenavComponent implements AfterViewInit {
     /**
      * Container
      */
-    containerEl: ElementRef<HTMLDivElement>;
+    protected containerEl: ElementRef<HTMLDivElement>;
     /**
      * Container body
      */
-    containerBodyEl: ElementRef<HTMLDivElement>;
+    protected containerBodyEl: ElementRef<HTMLDivElement>;
+    /**
+     * Mode
+     */
+    mode: 'push' | 'over' | 'responsive';
     /**
      * Direction
      */
-    directions: 'left' | 'right';
+    private directions;
     /**
      * Opened
      */
@@ -27,7 +31,14 @@ export declare class GdaSidenavComponent implements AfterViewInit {
      */
     private widthContainer;
     constructor(gdaSidenavService: GdaSidenavService, elementRef: ElementRef, renderer: Renderer2);
+    protected getStatusBackdoor(): boolean;
+    private pushOpen;
+    private overOpen;
+    private pushClose;
+    private overClose;
+    private resizeSidenav;
     ngAfterViewInit(): void;
+    protected toggleBackdoor(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav", never, {}, {}, never, ["gda-sidenav-header", "*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header", "*"], false>;
 }

@@ -69,20 +69,33 @@ constructor(private gdaTabsService: GdaTabsService) {
 </gda-tabs>
 ```
 
-it is possible to set an opening tab via `isOpen`.
+it is possible to set an opening tab via `indexTab`.
 
 ```
-<gda-tabs>
+<gda-tabs [indexTab]="1">
     <gda-tab titleTab="Tab 1">
         ... content ...
     </gda-tab>
-    <gda-tab titleTab="Tab 2" [isOpen]="true">
+    <gda-tab titleTab="Tab 2"> <-- Tab loaded on start
         ... content ...
     </gda-tab>
 </gda-tabs>
 ```
 
-An animation occurs when passing from one tab to another, it is possible to deactivate the animation individually via `<gda-tabs [animation] = "false"> </gda-tabs>` or globally via the `GdaTabsService` service.
+you can see the `indexTab` change via `indexTabActivated`.
+
+```
+<gda-tabs (indexTabActivated)="getNewIndexTab($event)"> <-- Tab event return new indexTab
+    <gda-tab titleTab="Tab 1">
+        ... content ...
+    </gda-tab>
+    <gda-tab titleTab="Tab 2">
+        ... content ...
+    </gda-tab>
+</gda-tabs>
+```
+
+An animation occurs when passing from one tab to another, it is possible to deactivate the animation individually via `<gda-tabs [animation]="false">...</gda-tabs>` or globally via the `GdaTabsService` service.
 
 GLOBAL:
 

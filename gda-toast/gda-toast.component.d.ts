@@ -39,11 +39,11 @@ export declare class GdaToastComponent implements OnInit {
     private directionToast;
     constructor(elementRef: ElementRef);
     ngOnInit(): void;
-    close(toast: {
+    protected close(toast: {
         text: string;
         config: GdaToastConfigForComponent;
     }): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaToastComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaToastComponent, "gda-toast", never, { "toasts": "toasts"; }, { "closeToast": "closeToast"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaToastComponent, "gda-toast", never, { "toasts": "toasts"; }, { "closeToast": "closeToast"; }, never, never, false>;
 }
 export {};

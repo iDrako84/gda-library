@@ -1,18 +1,16 @@
-import { AfterViewInit, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, OnInit, Renderer2 } from '@angular/core';
 import { GdaSidenavService } from './gda-sidenav.service';
 import * as i0 from "@angular/core";
 export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit {
     private gdaSidenavService;
     private elementRef;
     private renderer;
-    get setClass(): {
-        'gda-sidenav-header': boolean;
-    };
+    setClass: string;
     get setStyle(): {
         left: string | number;
         right: string | number;
     };
-    containerEl: ElementRef<HTMLDivElement>;
+    protected containerEl: ElementRef<HTMLDivElement>;
     /**
      * Open
      */
@@ -26,8 +24,12 @@ export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit 
      * Resize
      */
     set resize(val: boolean);
-    resizeVal: boolean;
-    resizeObserve: ResizeObserver;
+    private resizeVal;
+    private resizeObserve;
+    /**
+     * Status sidenav
+     */
+    statusSidenav: EventEmitter<boolean>;
     /**
      * Width content
      */
@@ -40,5 +42,5 @@ export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit 
      */
     toggle(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavHeaderComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeaderComponent, "gda-sidenav-header", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, {}, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeaderComponent, "gda-sidenav-header", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, { "statusSidenav": "statusSidenav"; }, never, ["*"], false>;
 }
