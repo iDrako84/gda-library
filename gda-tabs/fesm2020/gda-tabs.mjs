@@ -425,6 +425,11 @@ class GdaTabsComponent {
             color: active ? this.tabStyle.selected.color : this.tabStyle.normal.color
         };
     }
+    getStyleBar() {
+        return {
+            backgroundColor: this.tabStyle.barBackgroundColor
+        };
+    }
     animateRipple(e, el, renderer) {
         if (el) {
             const div = renderer.createElement('div');
@@ -473,6 +478,7 @@ GdaTabsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", versi
           <ng-template #titleString>
             {{ button.title }}
           </ng-template>
+          <div class="gda-tabs-bar" [ngStyle]="getStyleBar()"></div>
         </button>
       </div>
       <button type="button" class="gda-arrow-tabs gda-arrow-tabs-forward" *ngIf="viewArrow" (click)="arrow($event, 1)" #arrowForward @tabsArrowAnimation>
@@ -534,6 +540,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.0", ngImpor
           <ng-template #titleString>
             {{ button.title }}
           </ng-template>
+          <div class="gda-tabs-bar" [ngStyle]="getStyleBar()"></div>
         </button>
       </div>
       <button type="button" class="gda-arrow-tabs gda-arrow-tabs-forward" *ngIf="viewArrow" (click)="arrow($event, 1)" #arrowForward @tabsArrowAnimation>

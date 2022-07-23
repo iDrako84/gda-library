@@ -43,6 +43,9 @@ export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDes
         backgroundColor: string;
         color: string;
     };
+    protected getStyleBar(): {
+        backgroundColor: string;
+    };
     private animateRipple;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTabsComponent, never>;

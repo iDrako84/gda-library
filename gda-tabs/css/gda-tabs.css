@@ -56,6 +56,8 @@
     overflow: hidden;
     cursor: pointer;
     padding: 14px 16px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button:nth-child(1) {
@@ -66,9 +68,30 @@
     border-top-right-radius: 0.5rem;
 }
 
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button .gda-tabs-bar {
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    left: 50%;
+    bottom: 0;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
 .gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button.active {
     color: #fff;
 }
+
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button:hover .gda-tabs-bar {
+    width: 80%;
+    left: 10%;
+}
+
+.gda-tabs .gda-tabs-button-container .gda-tabs-button-container-tab .gda-tabs-button.active .gda-tabs-bar {
+    width: 100%;
+    left: 0%;
+}
+
 
 .gda-tabs .gda-tabs-button-container.gda-tabs-resize .gda-tabs-button-container-tab {
     width: 90%;

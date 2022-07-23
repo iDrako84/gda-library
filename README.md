@@ -91,6 +91,30 @@ constructor(private gdaButtonService: GdaButtonService) {
 }
 ```
 
+# GdaSidenav
+
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+
+## Code scaffolding
+
+Run `ng generate component component-name --project gda-sidenav` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project gda-sidenav`.
+> Note: Don't forget to add `--project gda-sidenav` or else it will be added to the default project in your `angular.json` file. 
+
+## Build
+
+Run `ng build gda-sidenav` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Publishing
+
+After building your library with `ng build gda-sidenav`, go to the dist folder `cd dist/gda-sidenav` and run `npm publish`.
+
+## Running unit tests
+
+Run `ng test gda-sidenav` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ## GDA TABS
 
 Import the `GdaTabsModule` module into your project.
@@ -162,20 +186,33 @@ constructor(private gdaTabsService: GdaTabsService) {
 </gda-tabs>
 ```
 
-it is possible to set an opening tab via `isOpen`.
+it is possible to set an opening tab via `indexTab`.
 
 ```
-<gda-tabs>
+<gda-tabs [indexTab]="1">
     <gda-tab titleTab="Tab 1">
         ... content ...
     </gda-tab>
-    <gda-tab titleTab="Tab 2" [isOpen]="true">
+    <gda-tab titleTab="Tab 2"> <-- Tab loaded on start
         ... content ...
     </gda-tab>
 </gda-tabs>
 ```
 
-An animation occurs when passing from one tab to another, it is possible to deactivate the animation individually via `<gda-tabs [animation] = "false"> </gda-tabs>` or globally via the `GdaTabsService` service.
+you can see the `indexTab` change via `indexTabActivated`.
+
+```
+<gda-tabs (indexTabActivated)="getNewIndexTab($event)"> <-- Tab event return new indexTab
+    <gda-tab titleTab="Tab 1">
+        ... content ...
+    </gda-tab>
+    <gda-tab titleTab="Tab 2">
+        ... content ...
+    </gda-tab>
+</gda-tabs>
+```
+
+An animation occurs when passing from one tab to another, it is possible to deactivate the animation individually via `<gda-tabs [animation]="false">...</gda-tabs>` or globally via the `GdaTabsService` service.
 
 GLOBAL:
 
