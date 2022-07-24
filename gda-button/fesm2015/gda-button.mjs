@@ -81,8 +81,8 @@ class GdaButtonDirective {
             div.style.position = 'absolute';
             div.style.WebkitTransform = 'scale(0)';
             div.style.transform = 'scale(0)';
-            div.style.WebkitAnimation = 'gda-tabs-ripple 300ms linear';
-            div.style.animation = 'gda-tabs-ripple 300ms linear';
+            div.style.WebkitAnimation = 'gda-button-ripple 300ms linear';
+            div.style.animation = 'gda-button-ripple 300ms linear';
             of(true).pipe(delay(400)).subscribe(() => renderer.removeChild(el.nativeElement, div));
         }
     }
