@@ -56,14 +56,14 @@ class GdaTabsPrivateService {
             setTimeout(() => this.createTabs());
         }
         else {
-            const tabsElN = ((_a = this.gdaTabsEl.querySelectorAll('gda-tab')) === null || _a === void 0 ? void 0 : _a.length) || 0;
+            const tabsElN = ((_a = this.gdaTabsEl.querySelectorAll('gda-tab, .gda-tab, [gda-tab]')) === null || _a === void 0 ? void 0 : _a.length) || 0;
             if (tabsElN === (i + 1))
                 this.createTabs();
         }
     }
     createTabs() {
         this.listTabs = [];
-        const tabs = this.gdaTabsEl.querySelectorAll('gda-tab');
+        const tabs = this.gdaTabsEl.querySelectorAll('gda-tab, .gda-tab, [gda-tab');
         tabs.forEach((tab, index) => this.callForId.emit(index));
         this.buttonLoaded.emit(this.listTabs);
     }
@@ -113,7 +113,7 @@ class GdaTabComponent {
         this.animations = false;
         this.sub1 = this.gdaTabsPrivateService.callForId.subscribe((position) => {
             const container = this.renderer.parentNode(this.elementRef.nativeElement);
-            container.querySelectorAll('gda-tab').forEach((tab, index) => {
+            container.querySelectorAll('gda-tab, .gda-tab, [gda-tab]').forEach((tab, index) => {
                 if (tab === this.elementRef.nativeElement)
                     this.position = index;
             });
