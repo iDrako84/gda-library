@@ -137,6 +137,22 @@ To use the tabs you need to create a container (`<gda-tabs> </gda-tabs>`) and in
         ... content ...
     </gda-tab>
 </gda-tabs>
+
+// OR
+
+<div class="gda-tabs">
+    <div class="gda-tab" titleTab="Tab 1">
+        ... content ...
+    </div>
+</div>
+
+// OR
+
+<div gda-tabs>
+    <div gda-tab titleTab="Tab 1">
+        ... content ...
+    </div>
+</div>
 ```
 
 The colors of the tabs are set by default,

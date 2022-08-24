@@ -25,5 +25,5 @@ export declare class GdaTabComponent implements AfterViewInit, OnDestroy {
     onTabActive(): boolean;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTabComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabComponent, "gda-tab", never, { "titleTab": "titleTab"; }, {}, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabComponent, "gda-tab, .gda-tab, [gda-tab]", never, { "titleTab": "titleTab"; }, {}, never, ["*"], false>;
 }

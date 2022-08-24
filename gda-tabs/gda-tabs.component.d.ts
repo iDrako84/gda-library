@@ -49,6 +49,6 @@ export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDes
     private animateRipple;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTabsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabsComponent, "gda-tabs", never, { "indexTab": "indexTab"; "animation": "animation"; "tabStyle": "tabStyle"; }, { "indexTabActivated": "indexTabActivated"; }, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabsComponent, "gda-tabs, .gda-tabs, [gda-tabs]", never, { "indexTab": "indexTab"; "animation": "animation"; "tabStyle": "tabStyle"; }, { "indexTabActivated": "indexTabActivated"; }, never, ["*"], false>;
 }
 export {};
