@@ -1,6 +1,6 @@
 {
   "name": "gda-library",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Angular library by writecodeforfun",
   "main": "index.js",
   "scripts": {
