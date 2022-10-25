@@ -38,6 +38,7 @@ export declare class GdaSidenavComponent implements AfterViewInit {
     private overClose;
     private resizeSidenav;
     ngAfterViewInit(): void;
+    protected onResize(): void;
     protected toggleBackdoor(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header", "*"], false>;

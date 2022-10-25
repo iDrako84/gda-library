@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Injectable, EventEmitter, Component, ChangeDetectionStrategy, HostBinding, ViewChild, Input, ViewChildren, Output, NgModule } from '@angular/core';
+import { Injectable, EventEmitter, Component, ChangeDetectionStrategy, HostBinding, ViewChild, Input, ViewChildren, Output, HostListener, NgModule } from '@angular/core';
 import { of, delay } from 'rxjs';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import * as i3 from '@angular/common';
@@ -24,9 +24,9 @@ class GdaTabsService {
         this.tabsStyle = new GdaTabsStyleModel();
     }
 }
-GdaTabsService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-GdaTabsService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsService, decorators: [{
+GdaTabsService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaTabsService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsService, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'
@@ -89,9 +89,9 @@ class GdaTabsPrivateService {
         this.animation = animation;
     }
 }
-GdaTabsPrivateService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsPrivateService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-GdaTabsPrivateService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsPrivateService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsPrivateService, decorators: [{
+GdaTabsPrivateService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsPrivateService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaTabsPrivateService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsPrivateService });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsPrivateService, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return []; } });
 
@@ -189,8 +189,8 @@ class GdaTabComponent {
         this.gdaTabsPrivateService.tabLoaded(this.renderer.parentNode(this.elementRef.nativeElement));
     }
 }
-GdaTabComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabComponent, deps: [{ token: i0.ChangeDetectorRef }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaTabsService }, { token: GdaTabsPrivateService }], target: i0.ɵɵFactoryTarget.Component });
-GdaTabComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.1.3", type: GdaTabComponent, selector: "gda-tab, .gda-tab, [gda-tab]", inputs: { titleTab: "titleTab" }, host: { properties: { "class": "this.setClass", "style.height": "this.heightTab" } }, viewQueries: [{ propertyName: "contentEl", first: true, predicate: ["contentEl"], descendants: true }], ngImport: i0, template: `
+GdaTabComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabComponent, deps: [{ token: i0.ChangeDetectorRef }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaTabsService }, { token: GdaTabsPrivateService }], target: i0.ɵɵFactoryTarget.Component });
+GdaTabComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaTabComponent, selector: "gda-tab, .gda-tab, [gda-tab]", inputs: { titleTab: "titleTab" }, host: { properties: { "class": "this.setClass", "style.height": "this.heightTab" } }, viewQueries: [{ propertyName: "contentEl", first: true, predicate: ["contentEl"], descendants: true }], ngImport: i0, template: `
     <div 
       class="gda-tabs-tab-content"
       *ngIf="onTabActive()"
@@ -224,7 +224,7 @@ GdaTabComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", versio
             ])
         ])
     ], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabComponent, decorators: [{
             type: Component,
             args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -317,15 +317,15 @@ class GdaTabsComponent {
         });
         this.sub2 = this.gdaTabsPrivateService.indexTabChangesEmit.subscribe((change) => this.indexTabActivated.emit(change));
         this.viewArrow = false;
-        window.onresize = () => {
-            this.getArrow('control');
-            this.cd.detectChanges();
-        };
     }
     set animation(val) {
         this.gdaTabsPrivateService.setAnimation(val);
     }
     ;
+    onResize() {
+        this.getArrow('control');
+        this.cd.detectChanges();
+    }
     ngOnChanges(changes) {
         if (changes.indexTab?.firstChange === false && changes.indexTab?.previousValue !== undefined && changes.indexTab?.previousValue !== changes.indexTab?.currentValue)
             this.gdaTabsPrivateService.setIndexTab(changes.indexTab.currentValue);
@@ -454,8 +454,8 @@ class GdaTabsComponent {
         this.sub2.unsubscribe();
     }
 }
-GdaTabsComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsComponent, deps: [{ token: i0.ChangeDetectorRef }, { token: i0.Renderer2 }, { token: GdaTabsPrivateService }, { token: GdaTabsService }], target: i0.ɵɵFactoryTarget.Component });
-GdaTabsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.1.3", type: GdaTabsComponent, selector: "gda-tabs, .gda-tabs, [gda-tabs]", inputs: { indexTab: "indexTab", animation: "animation", tabStyle: "tabStyle" }, outputs: { indexTabActivated: "indexTabActivated" }, host: { properties: { "class": "this.setClass" } }, providers: [
+GdaTabsComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsComponent, deps: [{ token: i0.ChangeDetectorRef }, { token: i0.Renderer2 }, { token: GdaTabsPrivateService }, { token: GdaTabsService }], target: i0.ɵɵFactoryTarget.Component });
+GdaTabsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaTabsComponent, selector: "gda-tabs, .gda-tabs, [gda-tabs]", inputs: { indexTab: "indexTab", animation: "animation", tabStyle: "tabStyle" }, outputs: { indexTabActivated: "indexTabActivated" }, host: { listeners: { "window:resize": "onResize($event)" }, properties: { "class": "this.setClass" } }, providers: [
         GdaTabsPrivateService
     ], viewQueries: [{ propertyName: "tabsHeaderContentEl", first: true, predicate: ["tabsHeaderContent"], descendants: true, static: true }, { propertyName: "buttonsTabEl", first: true, predicate: ["buttonsTab"], descendants: true, static: true }, { propertyName: "arrowBackEl", first: true, predicate: ["arrowBack"], descendants: true }, { propertyName: "arrowForwardEl", first: true, predicate: ["arrowForward"], descendants: true }, { propertyName: "tabsContentEl", first: true, predicate: ["tabsContent"], descendants: true }, { propertyName: "buttonEl", predicate: ["buttonEl"], descendants: true }], usesOnChanges: true, ngImport: i0, template: `
     <div class="gda-tabs-button-container" [ngClass]="{'gda-tabs-resize': viewArrow}" #tabsHeaderContent>
@@ -514,7 +514,7 @@ GdaTabsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", versi
             ])
         ])
     ], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsComponent, decorators: [{
             type: Component,
             args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -610,16 +610,19 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImpor
                 type: Input
             }], indexTabActivated: [{
                 type: Output
+            }], onResize: [{
+                type: HostListener,
+                args: ['window:resize', ['$event']]
             }] } });
 
 class GdaTabsModule {
 }
-GdaTabsModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaTabsModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsModule, declarations: [GdaTabsComponent,
+GdaTabsModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaTabsModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsModule, declarations: [GdaTabsComponent,
         GdaTabComponent], imports: [CommonModule], exports: [GdaTabsComponent,
         GdaTabComponent] });
-GdaTabsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsModule, imports: [CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTabsModule, decorators: [{
+GdaTabsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsModule, imports: [CommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTabsModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [

@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { EventEmitter, Injectable, Component, HostBinding, ViewChild, Input, Output, NgModule } from '@angular/core';
+import { EventEmitter, Injectable, Component, HostBinding, ViewChild, Input, Output, HostListener, NgModule } from '@angular/core';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import { of, delay } from 'rxjs';
 import * as i2 from '@angular/common';
@@ -14,9 +14,9 @@ class GdaSidenavService {
         this.directions = 'left';
     }
 }
-GdaSidenavService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-GdaSidenavService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavService, decorators: [{
+GdaSidenavService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaSidenavService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavService });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavService, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return []; } });
 
@@ -113,13 +113,13 @@ class GdaSidenavHeaderComponent {
         this.gdaSidenavService.toggle.emit(this.widthContainer);
     }
 }
-GdaSidenavHeaderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavHeaderComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
-GdaSidenavHeaderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.1.3", type: GdaSidenavHeaderComponent, selector: "gda-sidenav-header", inputs: { opened: "opened", directions: "directions", resize: "resize" }, outputs: { statusSidenav: "statusSidenav" }, host: { properties: { "class": "this.setClass", "style": "this.setStyle" } }, viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }], ngImport: i0, template: `
+GdaSidenavHeaderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavHeaderComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
+GdaSidenavHeaderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavHeaderComponent, selector: "gda-sidenav-header", inputs: { opened: "opened", directions: "directions", resize: "resize" }, outputs: { statusSidenav: "statusSidenav" }, host: { properties: { "class": "this.setClass", "style": "this.setStyle" } }, viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }], ngImport: i0, template: `
     <div class="gda-container-header" #container>
       <ng-content></ng-content>
     </div>
     `, isInline: true });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavHeaderComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavHeaderComponent, decorators: [{
             type: Component,
             args: [{
                     selector: 'gda-sidenav-header',
@@ -247,22 +247,22 @@ class GdaSidenavComponent {
         if (this.mode === 'responsive') {
             this.resizeSidenav();
         }
-        window.onresize = () => {
-            if (this.mode === 'responsive') {
-                this.resizeSidenav();
-            }
-        };
         of(true).pipe(delay(300)).subscribe(() => {
             this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header'), 'transition', 'width .2s ease-in-out');
             this.renderer.setStyle(this.containerBodyEl.nativeElement, 'transition', '.2s ease-in-out');
         });
     }
+    onResize() {
+        if (this.mode === 'responsive') {
+            this.resizeSidenav();
+        }
+    }
     toggleBackdoor() {
         this.gdaSidenavService.toggle.emit();
     }
 }
-GdaSidenavComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
-GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.1.3", type: GdaSidenavComponent, selector: "gda-sidenav", inputs: { mode: "mode" }, host: { properties: { "class.gda-sidenav": "this.setClass" } }, providers: [
+GdaSidenavComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
+GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavComponent, selector: "gda-sidenav", inputs: { mode: "mode" }, host: { listeners: { "window:resize": "onResize($event)" }, properties: { "class.gda-sidenav": "this.setClass" } }, providers: [
         GdaSidenavService
     ], viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }, { propertyName: "containerBodyEl", first: true, predicate: ["containerBody"], descendants: true }], ngImport: i0, template: `
     <div class="gda-sidenav-container" #container>
@@ -299,7 +299,7 @@ GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", ve
             ])
         ])
     ] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavComponent, decorators: [{
             type: Component,
             args: [{
                     selector: 'gda-sidenav',
@@ -354,16 +354,19 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImpor
                 args: ['containerBody']
             }], mode: [{
                 type: Input
+            }], onResize: [{
+                type: HostListener,
+                args: ['window:resize', ['$event']]
             }] } });
 
 class GdaSidenavModule {
 }
-GdaSidenavModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaSidenavModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavModule, declarations: [GdaSidenavComponent,
+GdaSidenavModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaSidenavModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, declarations: [GdaSidenavComponent,
         GdaSidenavHeaderComponent], imports: [CommonModule], exports: [GdaSidenavComponent,
         GdaSidenavHeaderComponent] });
-GdaSidenavModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavModule, imports: [CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaSidenavModule, decorators: [{
+GdaSidenavModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, imports: [CommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [

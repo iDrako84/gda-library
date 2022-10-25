@@ -4,10 +4,10 @@ import { GdaTooltipDirective } from './gda-tooltip.directive';
 import * as i0 from "@angular/core";
 export class GdaTooltipModule {
 }
-GdaTooltipModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTooltipModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaTooltipModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.1.3", ngImport: i0, type: GdaTooltipModule, declarations: [GdaTooltipDirective], exports: [GdaTooltipDirective] });
-GdaTooltipModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTooltipModule });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.3", ngImport: i0, type: GdaTooltipModule, decorators: [{
+GdaTooltipModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTooltipModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaTooltipModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaTooltipModule, declarations: [GdaTooltipDirective], exports: [GdaTooltipDirective] });
+GdaTooltipModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTooltipModule });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaTooltipModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [

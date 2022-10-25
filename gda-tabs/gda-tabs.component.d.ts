@@ -30,6 +30,7 @@ export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDes
     private sub1;
     private sub2;
     constructor(cd: ChangeDetectorRef, renderer: Renderer2, gdaTabsPrivateService: GdaTabsPrivateService, gdaTabsService: GdaTabsService);
+    protected onResize(): void;
     ngOnChanges(changes: SimpleChanges | any): void;
     ngAfterViewInit(): void;
     protected getButtons(): ListTabsModel[];
