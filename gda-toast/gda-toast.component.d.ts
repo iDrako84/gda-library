@@ -13,15 +13,7 @@ declare class GdaToastConfigForComponent extends GdaToastConfig {
 }
 export declare class GdaToastComponent implements OnInit {
     elementRef: ElementRef;
-    get addClass(): {
-        'gda-toast': boolean;
-        'gda-toast-top-left': boolean;
-        'gda-toast-top-center': boolean;
-        'gda-toast-top-right': boolean;
-        'gda-toast-bottom-left': boolean;
-        'gda-toast-bottom-center': boolean;
-        'gda-toast-bottom-right': boolean;
-    };
+    private get addClass();
     /**
      * Toasts
      */

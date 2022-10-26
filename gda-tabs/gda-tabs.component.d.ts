@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnDestroy, QueryList, Renderer2, SimpleChanges, TemplateRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, EventEmitter, OnChanges, OnDestroy, Renderer2, SimpleChanges, TemplateRef } from '@angular/core';
 import { GdaTabsPrivateService } from './gda-tabs-private.service';
 import { GdaTabsService } from './gda-tabs.service';
 import { GdaTabsStyleModel } from './gda-tabs-style.model';
@@ -13,13 +13,13 @@ export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDes
     private renderer;
     private gdaTabsPrivateService;
     private gdaTabsService;
-    protected setClass: string;
-    protected buttonEl: QueryList<ElementRef>;
-    protected tabsHeaderContentEl: ElementRef;
-    protected buttonsTabEl: ElementRef;
-    protected arrowBackEl: ElementRef;
-    protected arrowForwardEl: ElementRef;
-    protected tabsContentEl: ElementRef;
+    private setClass;
+    private buttonEl;
+    private tabsHeaderContentEl;
+    private buttonsTabEl;
+    private arrowBackEl;
+    private arrowForwardEl;
+    private tabsContentEl;
     indexTab: number;
     private buttons;
     set animation(val: boolean);
@@ -30,7 +30,7 @@ export declare class GdaTabsComponent implements OnChanges, AfterViewInit, OnDes
     private sub1;
     private sub2;
     constructor(cd: ChangeDetectorRef, renderer: Renderer2, gdaTabsPrivateService: GdaTabsPrivateService, gdaTabsService: GdaTabsService);
-    protected onResize(): void;
+    private onResize;
     ngOnChanges(changes: SimpleChanges | any): void;
     ngAfterViewInit(): void;
     protected getButtons(): ListTabsModel[];

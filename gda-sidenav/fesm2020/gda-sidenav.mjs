@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { EventEmitter, Injectable, Component, HostBinding, ViewChild, Input, Output, HostListener, NgModule } from '@angular/core';
+import { EventEmitter, Injectable, Component, ChangeDetectionStrategy, HostBinding, ViewChild, Input, Output, HostListener, NgModule } from '@angular/core';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import { of, delay } from 'rxjs';
 import * as i2 from '@angular/common';
@@ -21,12 +21,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
         }], ctorParameters: function () { return []; } });
 
 class GdaSidenavHeaderComponent {
-    constructor(gdaSidenavService, elementRef, renderer) {
+    constructor(gdaSidenavService, elementRef, renderer, cd) {
         this.gdaSidenavService = gdaSidenavService;
         this.elementRef = elementRef;
         this.renderer = renderer;
+        this.cd = cd;
         this.setClass = 'gda-sidenav-header';
-        this.opened = false;
+        this.opened = true;
         this.directionsVal = 'left';
         this.widthContainer = 0;
         this.resizeVal = false;
@@ -85,7 +86,9 @@ class GdaSidenavHeaderComponent {
         this.gdaSidenavService.toggle.subscribe(() => {
             this.opened = !this.opened;
             this.statusSidenav.emit(this.opened);
+            this.cd.detectChanges();
         });
+        this.cd.detectChanges();
     }
     ngAfterViewInit() {
         this.gdaSidenavService.widthContainer.emit(this.elementRef.nativeElement.getBoundingClientRect().width);
@@ -105,6 +108,7 @@ class GdaSidenavHeaderComponent {
             });
             this.resizeObserve.observe(this.containerEl.nativeElement);
         }
+        this.cd.detectChanges();
     }
     /**
      * Toggle
@@ -113,23 +117,24 @@ class GdaSidenavHeaderComponent {
         this.gdaSidenavService.toggle.emit(this.widthContainer);
     }
 }
-GdaSidenavHeaderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavHeaderComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
-GdaSidenavHeaderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavHeaderComponent, selector: "gda-sidenav-header", inputs: { opened: "opened", directions: "directions", resize: "resize" }, outputs: { statusSidenav: "statusSidenav" }, host: { properties: { "class": "this.setClass", "style": "this.setStyle" } }, viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }], ngImport: i0, template: `
+GdaSidenavHeaderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavHeaderComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
+GdaSidenavHeaderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavHeaderComponent, selector: "gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", inputs: { opened: "opened", directions: "directions", resize: "resize" }, outputs: { statusSidenav: "statusSidenav" }, host: { properties: { "class": "this.setClass", "style": "this.setStyle" } }, viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }], ngImport: i0, template: `
     <div class="gda-container-header" #container>
       <ng-content></ng-content>
     </div>
-    `, isInline: true });
+    `, isInline: true, changeDetection: i0.ChangeDetectionStrategy.OnPush });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavHeaderComponent, decorators: [{
             type: Component,
             args: [{
-                    selector: 'gda-sidenav-header',
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    selector: 'gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]',
                     template: `
     <div class="gda-container-header" #container>
       <ng-content></ng-content>
     </div>
     `
                 }]
-        }], ctorParameters: function () { return [{ type: GdaSidenavService }, { type: i0.ElementRef }, { type: i0.Renderer2 }]; }, propDecorators: { setClass: [{
+        }], ctorParameters: function () { return [{ type: GdaSidenavService }, { type: i0.ElementRef }, { type: i0.Renderer2 }, { type: i0.ChangeDetectorRef }]; }, propDecorators: { setClass: [{
                 type: HostBinding,
                 args: ['class']
             }], setStyle: [{
@@ -149,11 +154,12 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
             }] } });
 
 class GdaSidenavComponent {
-    constructor(gdaSidenavService, elementRef, renderer) {
+    constructor(gdaSidenavService, elementRef, renderer, cd) {
         this.gdaSidenavService = gdaSidenavService;
         this.elementRef = elementRef;
         this.renderer = renderer;
-        this.setClass = true;
+        this.cd = cd;
+        this.setClass = 'gda-sidenav';
         this.opened = false;
         this.mode = 'responsive';
         this.gdaSidenavService.toggle.subscribe((widthContainer) => {
@@ -200,7 +206,7 @@ class GdaSidenavComponent {
     resizeSidenav() {
         if (this.opened) {
             /* CONTAINER HEADER */
-            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header'), 'width', (this.widthContainer + 'px'));
+            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]'), 'width', (this.widthContainer + 'px'));
             /* CONTAINER BODY */
             if (this.mode === 'push') {
                 this.pushOpen();
@@ -219,7 +225,7 @@ class GdaSidenavComponent {
         }
         else {
             /* CONTAINER HEADER */
-            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header'), 'width', '0');
+            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]'), 'width', '0');
             /* CONTAINER BODY */
             if (this.mode === 'push') {
                 this.pushClose();
@@ -236,6 +242,7 @@ class GdaSidenavComponent {
                 }
             }
         }
+        this.cd.detectChanges();
     }
     ngAfterViewInit() {
         of(true).pipe(delay(0)).subscribe(() => {
@@ -248,7 +255,7 @@ class GdaSidenavComponent {
             this.resizeSidenav();
         }
         of(true).pipe(delay(300)).subscribe(() => {
-            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header'), 'transition', 'width .2s ease-in-out');
+            this.renderer.setStyle(this.elementRef.nativeElement.querySelector('gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]'), 'transition', 'width .2s ease-in-out');
             this.renderer.setStyle(this.containerBodyEl.nativeElement, 'transition', '.2s ease-in-out');
         });
     }
@@ -259,14 +266,15 @@ class GdaSidenavComponent {
     }
     toggleBackdoor() {
         this.gdaSidenavService.toggle.emit();
+        this.cd.detectChanges();
     }
 }
-GdaSidenavComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }], target: i0.ɵɵFactoryTarget.Component });
-GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavComponent, selector: "gda-sidenav", inputs: { mode: "mode" }, host: { listeners: { "window:resize": "onResize($event)" }, properties: { "class.gda-sidenav": "this.setClass" } }, providers: [
+GdaSidenavComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavComponent, deps: [{ token: GdaSidenavService }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
+GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaSidenavComponent, selector: "gda-sidenav, .gda-sidenav, [gda-sidenav]", inputs: { mode: "mode" }, host: { listeners: { "window:resize": "onResize($event)" }, properties: { "class": "this.setClass" } }, providers: [
         GdaSidenavService
     ], viewQueries: [{ propertyName: "containerEl", first: true, predicate: ["container"], descendants: true }, { propertyName: "containerBodyEl", first: true, predicate: ["containerBody"], descendants: true }], ngImport: i0, template: `
     <div class="gda-sidenav-container" #container>
-      <ng-content select="gda-sidenav-header"></ng-content>
+      <ng-content select="gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]"></ng-content>
       <div class="backdoor" *ngIf="getStatusBackdoor()" (click)="toggleBackdoor()" @backdoor></div>
       <div class="gda-sidenav-container" #containerBody>
         <ng-content></ng-content>
@@ -298,14 +306,15 @@ GdaSidenavComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", ve
                 ]))
             ])
         ])
-    ] });
+    ], changeDetection: i0.ChangeDetectionStrategy.OnPush });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavComponent, decorators: [{
             type: Component,
             args: [{
-                    selector: 'gda-sidenav',
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    selector: 'gda-sidenav, .gda-sidenav, [gda-sidenav]',
                     template: `
     <div class="gda-sidenav-container" #container>
-      <ng-content select="gda-sidenav-header"></ng-content>
+      <ng-content select="gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]"></ng-content>
       <div class="backdoor" *ngIf="getStatusBackdoor()" (click)="toggleBackdoor()" @backdoor></div>
       <div class="gda-sidenav-container" #containerBody>
         <ng-content></ng-content>
@@ -343,9 +352,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
                         ])
                     ]
                 }]
-        }], ctorParameters: function () { return [{ type: GdaSidenavService }, { type: i0.ElementRef }, { type: i0.Renderer2 }]; }, propDecorators: { setClass: [{
+        }], ctorParameters: function () { return [{ type: GdaSidenavService }, { type: i0.ElementRef }, { type: i0.Renderer2 }, { type: i0.ChangeDetectorRef }]; }, propDecorators: { setClass: [{
                 type: HostBinding,
-                args: ['class.gda-sidenav']
+                args: ['class']
             }], containerEl: [{
                 type: ViewChild,
                 args: ['container']

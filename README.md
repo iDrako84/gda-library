@@ -91,30 +91,147 @@ constructor(private gdaButtonService: GdaButtonService) {
 }
 ```
 
-# GdaSidenav
+## GDA SIDENAV
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Import the `GdaTabsModule` module into your project.
 
-## Code scaffolding
+```
+imports: [
+    ...
+    GdaSidenavModule,
+    ...
+]
+```
 
-Run `ng generate component component-name --project gda-sidenav` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project gda-sidenav`.
-> Note: Don't forget to add `--project gda-sidenav` or else it will be added to the default project in your `angular.json` file. 
+===========
 
-## Build
+To use the sidenav you need to create a container (`<gda-sidenav> </gda-sidenav>`) and insert header (`<gda-sidenav-header> ... content ... </gda-sidenav-header>`) and subsequently the content.
 
-Run `ng build gda-sidenav` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+<gda-sidenav>
+    <gda-sidenav-header>
+        ... header content ...
+    </gda-sidenav-header>
+    ... content...
+</gda-sidenav>
 
-## Publishing
+// OR
 
-After building your library with `ng build gda-sidenav`, go to the dist folder `cd dist/gda-sidenav` and run `npm publish`.
+<div class="gda-sidenav">
+    <div class="gda-sidenav-header">
+        ... header content ...
+    </div>
+    ... content...
+</div>
 
-## Running unit tests
+// OR
 
-Run `ng test gda-sidenav` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<div gda-sidenav>
+    <div gda-sidenav-header>
+        ... header content ...
+    </div>
+    ... content...
+</div>
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+gda-sidenav has three modes: `push`, `over` and `responsive`;
+`push` moves the content so that it is not covered by the header, in `over` the header covers the content and in `responsive` the sidenav changes between `push` and `over` according to the size of the page.
+
+By default the mode is set to `responsive`.
+
+```
+EXAMPLE
+
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header>
+        ... header content ...
+    </gda-sidenav-header>
+    ... content...
+</gda-sidenav>
+
+```
+
+In `gda-sidenav-header` it is possible to set the opening at the start via `opened` (boolean).
+
+By default the opened is set to `true`.
+
+```
+EXAMPLE
+
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header [opened]="true">
+        ... header content ...
+    </gda-sidenav-header>
+    ... content...
+</gda-sidenav>
+
+```
+
+In `gda-sidenav-header` it is possible to set the header direction through `directions`: `left` and `right`.
+
+By default directions is set to `left`.
+
+```
+EXAMPLE
+
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header [opened]="true" directions="left">
+        ... header content ...
+    </gda-sidenav-header>
+    ... content...
+</gda-sidenav>
+
+```
+
+In `gda-sidenav-header` you can set the `resize` of the sidenav, very useful when you have a dynamic header.
+
+By default it is set to `false`.
+
+```
+EXAMPLE
+
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header [opened]="true" directions="left" [resize]="false">
+        ... header content ...
+    </gda-sidenav-header>
+    ... content...
+</gda-sidenav>
+
+```
+
+To open the header you need to insert a reference in `gda-sidenav-header` and use the `toggle` method.
+
+```
+EXAMPLE
+
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header [opened]="true" directions="left" [resize]="false" #header>
+        <button type="button" gdaButton color="danger" (click)="header.toggle()">{{ text }}</button>
+    </gda-sidenav-header>
+    <button type="button" gdaButton color="danger" (click)="header.toggle()">{{ text }}</button>
+</gda-sidenav>
+
+```
+It is possible to take opening and closing event via `statusSidenav` (`boolean`).
+
+```
+EXAMPLE
+
+HTML:
+<gda-sidenav mode="responsive">
+    <gda-sidenav-header [opened]="true" directions="left" [resize]="false" (statusSidenav)="getStatusSidenav($event)" #header>
+        <button type="button" gdaButton color="danger" (click)="header.toggle()">{{ text }}</button>
+    </gda-sidenav-header>
+    <button type="button" gdaButton color="danger" (click)="header.toggle()">{{ text }}</button>
+</gda-sidenav>
+
+TS:
+getStatusSidenav(status: boolean): void {
+    ...
+}
+
+```
 ## GDA TABS
 
 Import the `GdaTabsModule` module into your project.

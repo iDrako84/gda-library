@@ -8,9 +8,9 @@ export declare class GdaTabComponent implements AfterViewInit, OnDestroy {
     private renderer;
     private gdaTabsService;
     private gdaTabsPrivateService;
-    setClass: string;
-    heightTab: string;
-    contentEl: ElementRef;
+    private setClass;
+    private heightTab;
+    private contentEl;
     set titleTab(title: string | TemplateRef<any> | any);
     private tabTitleVal;
     private position;

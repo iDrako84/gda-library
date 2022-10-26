@@ -1,19 +1,20 @@
-import { AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, ElementRef, Renderer2 } from '@angular/core';
 import { GdaSidenavService } from './gda-sidenav.service';
 import * as i0 from "@angular/core";
 export declare class GdaSidenavComponent implements AfterViewInit {
     private gdaSidenavService;
     private elementRef;
     private renderer;
-    setClass: boolean;
+    private cd;
+    private setClass;
     /**
      * Container
      */
-    protected containerEl: ElementRef<HTMLDivElement>;
+    private containerEl;
     /**
      * Container body
      */
-    protected containerBodyEl: ElementRef<HTMLDivElement>;
+    private containerBodyEl;
     /**
      * Mode
      */
@@ -30,7 +31,7 @@ export declare class GdaSidenavComponent implements AfterViewInit {
      * Width container
      */
     private widthContainer;
-    constructor(gdaSidenavService: GdaSidenavService, elementRef: ElementRef, renderer: Renderer2);
+    constructor(gdaSidenavService: GdaSidenavService, elementRef: ElementRef, renderer: Renderer2, cd: ChangeDetectorRef);
     protected getStatusBackdoor(): boolean;
     private pushOpen;
     private overOpen;
@@ -38,8 +39,8 @@ export declare class GdaSidenavComponent implements AfterViewInit {
     private overClose;
     private resizeSidenav;
     ngAfterViewInit(): void;
-    protected onResize(): void;
+    private onResize;
     protected toggleBackdoor(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header", "*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav, .gda-sidenav, [gda-sidenav]", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", "*"], false>;
 }

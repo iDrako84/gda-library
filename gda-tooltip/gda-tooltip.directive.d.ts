@@ -37,12 +37,12 @@ export declare class GdaTooltipDirective implements OnChanges, OnDestroy {
     /**
      * Mouse sopra
      */
-    onClick(e: MouseEvent): void;
+    private onClick;
     /**
      * Mouse over
      */
-    mouseleave(eventData: Event): void;
-    mobileAndTabletCheck(): boolean;
+    private mouseleave;
+    private mobileAndTabletCheck;
     /**
      * Distrugge i tooltip
      */

@@ -8,13 +8,7 @@ export declare class GdaButtonDirective {
     /**
      * add class
      */
-    get setClass(): {
-        'gda-button': boolean;
-        'gda-button-primary': boolean;
-        'gda-button-success': boolean;
-        'gda-button-warning': boolean;
-        'gda-button-danger': boolean;
-    };
+    private get setClass();
     private setClassPrimary;
     private setClassSuccess;
     private setClassWarning;
@@ -33,7 +27,7 @@ export declare class GdaButtonDirective {
     /**
      * Animazione ripple
      */
-    onClick(e: MouseEvent): void;
+    private onClick;
     private animateRipple;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaButtonDirective, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<GdaButtonDirective, "[gdaButton]", never, { "color": "color"; "animationEnabled": "animationEnabled"; }, {}, never, never, false>;
