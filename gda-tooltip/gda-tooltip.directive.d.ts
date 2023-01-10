@@ -48,5 +48,5 @@ export declare class GdaTooltipDirective implements OnChanges, OnDestroy {
      */
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaTooltipDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltipDirective, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltipDirective, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never, never, false, never>;
 }

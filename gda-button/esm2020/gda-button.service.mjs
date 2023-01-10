@@ -5,9 +5,9 @@ export class GdaButtonService {
         this.animationEnabled = true;
     }
 }
-GdaButtonService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-GdaButtonService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, decorators: [{
+GdaButtonService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaButtonService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'

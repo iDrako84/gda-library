@@ -36,6 +36,6 @@ export declare class GdaToastComponent implements OnInit {
         config: GdaToastConfigForComponent;
     }): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaToastComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaToastComponent, "gda-toast", never, { "toasts": "toasts"; }, { "closeToast": "closeToast"; }, never, never, false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaToastComponent, "gda-toast", never, { "toasts": "toasts"; }, { "closeToast": "closeToast"; }, never, never, false, never>;
 }
 export {};

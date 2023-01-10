@@ -6,12 +6,12 @@ import { GdaSidenavHeaderComponent } from './gda-sidenav-header.component';
 import * as i0 from "@angular/core";
 export class GdaSidenavModule {
 }
-GdaSidenavModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaSidenavModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, declarations: [GdaSidenavComponent,
+GdaSidenavModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaSidenavModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaSidenavModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaSidenavModule, declarations: [GdaSidenavComponent,
         GdaSidenavHeaderComponent], imports: [CommonModule], exports: [GdaSidenavComponent,
         GdaSidenavHeaderComponent] });
-GdaSidenavModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, imports: [CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaSidenavModule, decorators: [{
+GdaSidenavModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaSidenavModule, imports: [CommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaSidenavModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [

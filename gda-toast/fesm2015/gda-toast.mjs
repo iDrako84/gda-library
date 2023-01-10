@@ -3,22 +3,21 @@ import { EventEmitter, Component, HostBinding, Input, Output, Injectable, NgModu
 import { trigger, transition, style, animate } from '@angular/animations';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { of, delay } from 'rxjs';
 
-class GdaToastConfig$1 {
+let GdaToastConfig$1 = class GdaToastConfig {
     constructor(direction = 'top-right', classToast = '', styleToast = {}, timing = 3000) {
         this.direction = direction;
         this.classToast = classToast;
         this.styleToast = styleToast;
         this.timing = timing;
     }
-}
-class GdaToastConfigForComponent$1 extends GdaToastConfig$1 {
+};
+let GdaToastConfigForComponent$1 = class GdaToastConfigForComponent extends GdaToastConfig$1 {
     constructor(id = '') {
         super();
         this.id = id;
     }
-}
+};
 class GdaToastComponent {
     constructor(elementRef) {
         this.elementRef = elementRef;
@@ -45,8 +44,8 @@ class GdaToastComponent {
         this.closeToast.emit(toast.config.id);
     }
 }
-GdaToastComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToastComponent, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Component });
-GdaToastComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.2.7", type: GdaToastComponent, selector: "gda-toast", inputs: { toasts: "toasts" }, outputs: { closeToast: "closeToast" }, host: { properties: { "class": "this.addClass" } }, ngImport: i0, template: `
+GdaToastComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToastComponent, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Component });
+GdaToastComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.0.4", type: GdaToastComponent, selector: "gda-toast", inputs: { toasts: "toasts" }, outputs: { closeToast: "closeToast" }, host: { properties: { "class": "this.addClass" } }, ngImport: i0, template: `
     <div 
       *ngFor="let toast of toasts" 
       class="gda-toast-item" 
@@ -74,7 +73,7 @@ GdaToastComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", vers
             ])
         ])
     ] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToastComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToastComponent, decorators: [{
             type: Component,
             args: [{
                     selector: 'gda-toast',
@@ -180,34 +179,34 @@ class GdaToast {
         };
         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.push({ text: text, config: c });
         if (c.timing !== 'indeterminate') {
-            of(true).pipe(delay(c.timing || 0)).subscribe(() => {
+            setTimeout(() => {
                 this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts = this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.filter((toast) => toast.config.id !== c.id);
-                of(true).pipe(delay(500)).subscribe(() => {
+                setTimeout(() => {
                     if (!this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.length) {
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.unsubscribe();
                         this.appRef.detachView(this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].hostView);
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].destroy();
                     }
-                });
-            });
+                }, 500);
+            }, c.timing || 0);
         }
         else {
             this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.subscribe((id) => {
                 this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts = this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.filter((toast) => toast.config.id !== id);
-                of(true).pipe(delay(500)).subscribe(() => {
+                setTimeout(() => {
                     if (!this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.toasts.length) {
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].instance.closeToast.unsubscribe();
                         this.appRef.detachView(this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].hostView);
                         this[this.selectedComponentRef(((config === null || config === void 0 ? void 0 : config.direction) || this.toastConfigDefault.direction))].destroy();
                     }
-                });
+                }, 500);
             });
         }
     }
 }
-GdaToast.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToast, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ApplicationRef }, { token: i0.Injector }], target: i0.ɵɵFactoryTarget.Injectable });
-GdaToast.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToast, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToast, decorators: [{
+GdaToast.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToast, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ApplicationRef }, { token: i0.Injector }], target: i0.ɵɵFactoryTarget.Injectable });
+GdaToast.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToast, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToast, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'
@@ -216,10 +215,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
 
 class GdaToastModule {
 }
-GdaToastModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToastModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaToastModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaToastModule, declarations: [GdaToastComponent], imports: [CommonModule] });
-GdaToastModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToastModule, imports: [CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaToastModule, decorators: [{
+GdaToastModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToastModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaToastModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaToastModule, declarations: [GdaToastComponent], imports: [CommonModule] });
+GdaToastModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToastModule, imports: [CommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaToastModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
@@ -239,5 +238,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { GdaToast, GdaToastComponent, GdaToastConfig, GdaToastModule };
+export { GdaToast, GdaToastConfig, GdaToastModule };
 //# sourceMappingURL=gda-toast.mjs.map

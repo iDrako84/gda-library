@@ -30,5 +30,5 @@ export declare class GdaButtonDirective {
     private onClick;
     private animateRipple;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaButtonDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaButtonDirective, "[gdaButton]", never, { "color": "color"; "animationEnabled": "animationEnabled"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaButtonDirective, "[gdaButton]", never, { "color": "color"; "animationEnabled": "animationEnabled"; }, {}, never, never, false, never>;
 }

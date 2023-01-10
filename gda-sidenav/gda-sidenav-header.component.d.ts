@@ -40,5 +40,5 @@ export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit 
      */
     toggle(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavHeaderComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeaderComponent, "gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, { "statusSidenav": "statusSidenav"; }, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeaderComponent, "gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, { "statusSidenav": "statusSidenav"; }, never, ["*"], false, never>;
 }

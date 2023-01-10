@@ -42,5 +42,5 @@ export declare class GdaSidenavComponent implements AfterViewInit {
     private onResize;
     protected toggleBackdoor(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav, .gda-sidenav, [gda-sidenav]", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", "*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavComponent, "gda-sidenav, .gda-sidenav, [gda-sidenav]", never, { "mode": "mode"; }, {}, never, ["gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", "*"], false, never>;
 }

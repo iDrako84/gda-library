@@ -3,6 +3,7 @@
     position: fixed;
     width: 320px;
     padding: 1rem;
+    overflow: hidden;
     z-index: 10000;
 }
 

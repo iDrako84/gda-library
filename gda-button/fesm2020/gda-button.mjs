@@ -1,15 +1,14 @@
 import * as i0 from '@angular/core';
 import { Injectable, Directive, HostBinding, Input, HostListener, NgModule } from '@angular/core';
-import { of, delay } from 'rxjs';
 
 class GdaButtonService {
     constructor() {
         this.animationEnabled = true;
     }
 }
-GdaButtonService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-GdaButtonService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonService, decorators: [{
+GdaButtonService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+GdaButtonService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonService, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root'
@@ -68,7 +67,7 @@ class GdaButtonDirective {
         }
     }
     animateRipple(e, el, renderer) {
-        if (el) {
+        if (el && e) {
             const div = renderer.createElement('div');
             renderer.appendChild(el.nativeElement, div);
             const d = Math.max(el.nativeElement.clientWidth, el.nativeElement.clientHeight);
@@ -83,13 +82,13 @@ class GdaButtonDirective {
             div.style.transform = 'scale(0)';
             div.style.WebkitAnimation = 'gda-button-ripple 300ms linear';
             div.style.animation = 'gda-button-ripple 300ms linear';
-            of(true).pipe(delay(400)).subscribe(() => renderer.removeChild(el.nativeElement, div));
+            setTimeout(() => renderer.removeChild(el.nativeElement, div), 400);
         }
     }
 }
-GdaButtonDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaButtonService }], target: i0.ɵɵFactoryTarget.Directive });
-GdaButtonDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.2.7", type: GdaButtonDirective, selector: "[gdaButton]", inputs: { color: "color", animationEnabled: "animationEnabled" }, host: { listeners: { "click": "onClick($event)" }, properties: { "class": "this.setClass" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonDirective, decorators: [{
+GdaButtonDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaButtonService }], target: i0.ɵɵFactoryTarget.Directive });
+GdaButtonDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaButtonDirective, selector: "[gdaButton]", inputs: { color: "color", animationEnabled: "animationEnabled" }, host: { listeners: { "click": "onClick($event)" }, properties: { "class": "this.setClass" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[gdaButton]'
@@ -108,10 +107,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImpor
 
 class GdaButtonModule {
 }
-GdaButtonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaButtonModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, declarations: [GdaButtonDirective], exports: [GdaButtonDirective] });
-GdaButtonModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, decorators: [{
+GdaButtonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaButtonModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, declarations: [GdaButtonDirective], exports: [GdaButtonDirective] });
+GdaButtonModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [

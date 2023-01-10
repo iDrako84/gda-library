@@ -73,6 +73,207 @@
     }
 }
 
+/* GDA-MENU */
+.gda-menu-containers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+}
+
+.gda-menu-containers .gda-menu-container {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 0.15rem;
+  box-shadow: 2px 2px 4px 2px #888;
+  overflow: auto;
+  max-width: 260px;
+  animation-duration: 200ms;
+  white-space: nowrap;
+  z-index: 30;
+}
+
+.gda-menu-containers .gda-menu-container.gda-menu-container-direction-left {
+  animation-name: gda-menu-container-left;
+}
+
+.gda-menu-containers .gda-menu-container.gda-menu-container-direction-right {
+  animation-name: gda-menu-container-right;
+}
+
+.gda-menu-containers .gda-menu-container.gda-menu-container-direction-bottom {
+  animation-name: gda-menu-container-bottom;
+}
+
+.gda-menu-containers .gda-menu-container.gda-menu-container-direction-top {
+  animation-name: gda-menu-container-top;
+}
+
+/* .gda-menu-containers .gda-menu-container .gda-menu-item {
+    display: table;
+} */
+
+.gda-menu-containers .gda-menu-container .gda-menu-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  box-shadow: 0 0 rgba(0, 0, 0, 0.3);
+  border: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline: 0;
+  text-align: left;
+  transition: box-shadow .2s;
+  cursor: pointer;
+}
+
+.gda-menu-containers .gda-menu-container .gda-menu-item:hover {
+  background: #eee;
+}
+
+.gda-menu-containers .gda-menu-container .gda-menu-item span.gda-menu-item-button-icon {
+  position: absolute;
+}
+
+.gda-menu-containers .gda-menu-container .gda-menu-item span.gda-menu-item-button-icon.gda-menu-item-button-icon-right {
+  right: -7px;
+}
+
+@-webkit-keyframes gda-menu-container-right {
+  0% {
+    pointer-events: none;
+    -webkit-transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gda-menu-container-right {
+  0% {
+    pointer-events: none;
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes gda-menu-container-left {
+  0% {
+    pointer-events: none;
+    -webkit-transform: translateX(10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gda-menu-container-left {
+  0% {
+    pointer-events: none;
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes gda-menu-container-bottom {
+  0% {
+    pointer-events: none;
+    -webkit-transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gda-menu-container-bottom {
+  0% {
+    pointer-events: none;
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes gda-menu-container-top {
+  0% {
+    pointer-events: none;
+    -webkit-transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gda-menu-container-top {
+  0% {
+    pointer-events: none;
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    pointer-events: auto;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes gda-menu-button-ripple {
+  to {
+      -webkit-transform: scale(2.5);
+      opacity: 0;
+  }
+}
+
+@keyframes gda-menu-button-ripple {
+  to {
+      transform: scale(2.5);
+      opacity: 0;
+  }
+}
 /* GDA SIDENAV */
 .gda-sidenav {
     position: relative;
@@ -128,6 +329,7 @@
     position: absolute;
     background-color: #fff;
     width: 5%;
+    min-width: 20px;
     height: 100%;
     border: none;
     outline: 0;
@@ -245,6 +447,7 @@
     position: fixed;
     width: 320px;
     padding: 1rem;
+    overflow: hidden;
     z-index: 10000;
 }
 

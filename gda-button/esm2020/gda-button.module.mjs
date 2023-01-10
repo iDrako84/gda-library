@@ -3,10 +3,10 @@ import { GdaButtonDirective } from './gda-button.directive';
 import * as i0 from "@angular/core";
 export class GdaButtonModule {
 }
-GdaButtonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaButtonModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, declarations: [GdaButtonDirective], exports: [GdaButtonDirective] });
-GdaButtonModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.7", ngImport: i0, type: GdaButtonModule, decorators: [{
+GdaButtonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+GdaButtonModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, declarations: [GdaButtonDirective], exports: [GdaButtonDirective] });
+GdaButtonModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaButtonModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
