@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnInit, Renderer2 } from '@angular/core';
 import { GdaSidenavService } from './gda-sidenav.service';
 import * as i0 from "@angular/core";
-export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit {
+export declare class GdaSidenavHeader implements OnInit, AfterViewInit {
     private gdaSidenavService;
     private elementRef;
     private renderer;
@@ -39,6 +39,6 @@ export declare class GdaSidenavHeaderComponent implements OnInit, AfterViewInit 
      * Toggle
      */
     toggle(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavHeaderComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeaderComponent, "gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, { "statusSidenav": "statusSidenav"; }, never, ["*"], false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaSidenavHeader, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaSidenavHeader, "gda-sidenav-header, .gda-sidenav-header, [gda-sidenav-header]", never, { "opened": "opened"; "directions": "directions"; "resize": "resize"; }, { "statusSidenav": "statusSidenav"; }, never, ["*"], false, never>;
 }

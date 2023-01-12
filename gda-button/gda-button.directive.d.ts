@@ -1,7 +1,7 @@
 import { ElementRef, Renderer2 } from "@angular/core";
 import { GdaButtonService } from "./gda-button.service";
 import * as i0 from "@angular/core";
-export declare class GdaButtonDirective {
+export declare class GdaButton {
     elementRef: ElementRef;
     private renderer;
     private gdaButtonService;
@@ -29,6 +29,6 @@ export declare class GdaButtonDirective {
      */
     private onClick;
     private animateRipple;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaButtonDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaButtonDirective, "[gdaButton]", never, { "color": "color"; "animationEnabled": "animationEnabled"; }, {}, never, never, false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaButton, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaButton, "[gdaButton]", never, { "color": "color"; "animationEnabled": "animationEnabled"; }, {}, never, never, false, never>;
 }

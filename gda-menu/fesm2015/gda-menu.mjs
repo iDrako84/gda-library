@@ -125,7 +125,7 @@ const iconArrow = `
         <path d="m10.211 7.155c-.141-.108-.3-.157-.456-.157-.389 0-.755.306-.755.749v8.501c0 .445.367.75.755.75.157 0 .316-.05.457-.159 1.554-1.203 4.199-3.252 5.498-4.258.184-.142.29-.36.29-.592 0-.23-.107-.449-.291-.591-1.299-1.002-3.945-3.044-5.498-4.243z"/>
     </svg>
 `;
-class GdaMenuItemDirective {
+class GdaMenuItem {
     // @ViewChild('button', { static: true }) buttonEl!: ElementRef;
     // @ViewChild('icon', { static: true }) iconEl!: ElementRef;
     constructor(elementRef, renderer, gdaMenuService) {
@@ -176,9 +176,9 @@ class GdaMenuItemDirective {
         }
     }
 }
-GdaMenuItemDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuItemDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaMenuService }], target: i0.ɵɵFactoryTarget.Directive });
-GdaMenuItemDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenuItemDirective, selector: "[gdaMenuItem]", inputs: { direction: "direction" }, host: { listeners: { "click": "onClick($event)", "mouseenter": "onEnter($event)" }, properties: { "class": "this.setClass" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuItemDirective, decorators: [{
+GdaMenuItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuItem, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaMenuService }], target: i0.ɵɵFactoryTarget.Directive });
+GdaMenuItem.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenuItem, selector: "[gdaMenuItem]", inputs: { direction: "direction" }, host: { listeners: { "click": "onClick($event)", "mouseenter": "onEnter($event)" }, properties: { "class": "this.setClass" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuItem, decorators: [{
             type: Directive,
             args: [{
                     selector: '[gdaMenuItem]',
@@ -203,7 +203,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
                 args: ['mouseenter', ['$event']]
             }] } });
 
-class GdaMenuTriggerDirective {
+class GdaMenuTrigger {
     constructor(viewContainerRef, elementRef, renderer, gdaMenuService) {
         this.viewContainerRef = viewContainerRef;
         this.elementRef = elementRef;
@@ -288,9 +288,9 @@ class GdaMenuTriggerDirective {
         this.sub2.unsubscribe();
     }
 }
-GdaMenuTriggerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuTriggerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaMenuService }], target: i0.ɵɵFactoryTarget.Directive });
-GdaMenuTriggerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenuTriggerDirective, selector: "[gdaMenuTrigger]", inputs: { gdaMenuTrigger: "gdaMenuTrigger", direction: "direction" }, host: { listeners: { "click": "onClick()" }, properties: { "class": "this.setClass", "attr.data-menu": "this.setProperty" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuTriggerDirective, decorators: [{
+GdaMenuTrigger.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuTrigger, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaMenuService }], target: i0.ɵɵFactoryTarget.Directive });
+GdaMenuTrigger.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenuTrigger, selector: "[gdaMenuTrigger]", inputs: { gdaMenuTrigger: "gdaMenuTrigger", direction: "direction" }, host: { listeners: { "click": "onClick()" }, properties: { "class": "this.setClass", "attr.data-menu": "this.setProperty" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuTrigger, decorators: [{
             type: Directive,
             args: [{
                     selector: '[gdaMenuTrigger]'
@@ -310,7 +310,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
                 args: ['click']
             }] } });
 
-class GdaMenuComponent {
+class GdaMenu {
     constructor(el) {
         this.el = el;
         /**
@@ -319,16 +319,16 @@ class GdaMenuComponent {
         this.setStyle = 'none';
     }
 }
-GdaMenuComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuComponent, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Component });
-GdaMenuComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenuComponent, selector: "gda-menu", host: { properties: { "style.display": "this.setStyle" } }, viewQueries: [{ propertyName: "contentTemplate", first: true, predicate: ["content"], descendants: true, read: TemplateRef }], ngImport: i0, template: `
+GdaMenu.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenu, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Component });
+GdaMenu.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.0.4", type: GdaMenu, selector: "gda-menu, .gda-menu, [gda-menu]", host: { properties: { "style.display": "this.setStyle" } }, viewQueries: [{ propertyName: "contentTemplate", first: true, predicate: ["content"], descendants: true, read: TemplateRef }], ngImport: i0, template: `
     <ng-template #content>
       <ng-content></ng-content>
     </ng-template>
   `, isInline: true });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuComponent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenu, decorators: [{
             type: Component,
             args: [{
-                    selector: 'gda-menu',
+                    selector: 'gda-menu, .gda-menu, [gda-menu]',
                     template: `
     <ng-template #content>
       <ng-content></ng-content>
@@ -346,24 +346,24 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
 class GdaMenuModule {
 }
 GdaMenuModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaMenuModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuModule, declarations: [GdaMenuComponent,
-        GdaMenuTriggerDirective,
-        GdaMenuItemDirective], exports: [GdaMenuComponent,
-        GdaMenuTriggerDirective,
-        GdaMenuItemDirective] });
+GdaMenuModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuModule, declarations: [GdaMenu,
+        GdaMenuTrigger,
+        GdaMenuItem], exports: [GdaMenu,
+        GdaMenuTrigger,
+        GdaMenuItem] });
 GdaMenuModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuModule });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaMenuModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
-                        GdaMenuComponent,
-                        GdaMenuTriggerDirective,
-                        GdaMenuItemDirective
+                        GdaMenu,
+                        GdaMenuTrigger,
+                        GdaMenuItem
                     ],
                     exports: [
-                        GdaMenuComponent,
-                        GdaMenuTriggerDirective,
-                        GdaMenuItemDirective
+                        GdaMenu,
+                        GdaMenuTrigger,
+                        GdaMenuItem
                     ]
                 }]
         }] });
@@ -376,5 +376,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { GdaMenuComponent, GdaMenuItemDirective, GdaMenuModule, GdaMenuTriggerDirective };
+export { GdaMenu, GdaMenuItem, GdaMenuModule, GdaMenuTrigger };
 //# sourceMappingURL=gda-menu.mjs.map

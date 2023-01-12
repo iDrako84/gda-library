@@ -1,15 +1,15 @@
 import { AfterViewInit, ElementRef, OnDestroy, Renderer2, ViewContainerRef } from "@angular/core";
-import { GdaMenuComponent } from "./gda-menu.component";
+import { GdaMenu } from "./gda-menu.component";
 import { GdaMenuService } from "./gda-menu.service";
 import * as i0 from "@angular/core";
-export declare class GdaMenuTriggerDirective implements AfterViewInit, OnDestroy {
+export declare class GdaMenuTrigger implements AfterViewInit, OnDestroy {
     viewContainerRef: ViewContainerRef;
     private elementRef;
     private renderer;
     private gdaMenuService;
     private setClass;
     private setProperty;
-    set gdaMenuTrigger(value: GdaMenuComponent);
+    set gdaMenuTrigger(value: GdaMenu);
     direction: 'top' | 'left' | 'right' | 'bottom';
     private embeddedViewRef;
     private containers;
@@ -22,6 +22,6 @@ export declare class GdaMenuTriggerDirective implements AfterViewInit, OnDestroy
     ngAfterViewInit(): void;
     private onClick;
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaMenuTriggerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaMenuTriggerDirective, "[gdaMenuTrigger]", never, { "gdaMenuTrigger": "gdaMenuTrigger"; "direction": "direction"; }, {}, never, never, false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaMenuTrigger, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaMenuTrigger, "[gdaMenuTrigger]", never, { "gdaMenuTrigger": "gdaMenuTrigger"; "direction": "direction"; }, {}, never, never, false, never>;
 }

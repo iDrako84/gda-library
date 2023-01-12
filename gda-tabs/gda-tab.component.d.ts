@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, Renderer2, Tem
 import { GdaTabsService } from './gda-tabs.service';
 import { GdaTabsPrivateService } from './gda-tabs-private.service';
 import * as i0 from "@angular/core";
-export declare class GdaTabComponent implements AfterViewInit, OnDestroy {
+export declare class GdaTab implements AfterViewInit, OnDestroy {
     private cd;
     private elementRef;
     private renderer;
@@ -24,6 +24,6 @@ export declare class GdaTabComponent implements AfterViewInit, OnDestroy {
     ngAfterViewInit(): void;
     onTabActive(): boolean;
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaTabComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTabComponent, "gda-tab, .gda-tab, [gda-tab]", never, { "titleTab": "titleTab"; }, {}, never, ["*"], false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaTab, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GdaTab, "gda-tab, .gda-tab, [gda-tab]", never, { "titleTab": "titleTab"; }, {}, never, ["*"], false, never>;
 }

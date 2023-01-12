@@ -1,7 +1,7 @@
 import { AfterViewInit, ElementRef, Renderer2 } from "@angular/core";
 import { GdaMenuService } from "./gda-menu.service";
 import * as i0 from "@angular/core";
-export declare class GdaMenuItemDirective implements AfterViewInit {
+export declare class GdaMenuItem implements AfterViewInit {
     private elementRef;
     private renderer;
     private gdaMenuService;
@@ -12,6 +12,6 @@ export declare class GdaMenuItemDirective implements AfterViewInit {
     private onClick;
     private onEnter;
     private animationClick;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaMenuItemDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaMenuItemDirective, "[gdaMenuItem]", never, { "direction": "direction"; }, {}, never, never, false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaMenuItem, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaMenuItem, "[gdaMenuItem]", never, { "direction": "direction"; }, {}, never, never, false, never>;
 }

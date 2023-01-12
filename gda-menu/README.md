@@ -12,7 +12,7 @@ imports: [
 
 ===========
 
-You can use the `gdaMenuTrigger` directive on element and `gda-menu` component, in `gdaMenuTrigger` you need to pass the reference of the `gda-menu` container:
+Use the `gdaMenuTrigger` directive on the trigger element and use the menu component using the `gda-menu`, `.gda-menu` or `[gda-menu]` selectors, in `gdaMenuTrigger` you need to pass the reference of the `gda-menu` container:
 
 ```
 <button type="button" [gdaMenuTrigger]="fruits">Open menu</button>

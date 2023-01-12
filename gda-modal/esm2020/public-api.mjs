@@ -1,0 +1,10 @@
+/*
+ * Public API Surface of gda-modal
+ */
+export * from './gda-modal.service';
+export * from './gda-modal.component';
+export * from './gda-modal-header.component';
+export * from './gda-modal-content.component';
+export * from './gda-modal-footer.component';
+export * from './gda-modal.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2dkYS1saWJyYXJ5LWRldi9wcm9qZWN0cy9nZGEtbW9kYWwvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLHFCQUFxQixDQUFDO0FBQ3BDLGNBQWMsdUJBQXVCLENBQUM7QUFDdEMsY0FBYyw4QkFBOEIsQ0FBQztBQUM3QyxjQUFjLCtCQUErQixDQUFDO0FBQzlDLGNBQWMsOEJBQThCLENBQUM7QUFDN0MsY0FBYyxvQkFBb0IsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgZ2RhLW1vZGFsXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9nZGEtbW9kYWwuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2dkYS1tb2RhbC5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9nZGEtbW9kYWwtaGVhZGVyLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2dkYS1tb2RhbC1jb250ZW50LmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2dkYS1tb2RhbC1mb290ZXIuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vZ2RhLW1vZGFsLm1vZHVsZSc7XG4iXX0=

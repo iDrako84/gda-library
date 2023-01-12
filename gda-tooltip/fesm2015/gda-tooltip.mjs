@@ -25,7 +25,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
                 }]
         }], ctorParameters: function () { return []; } });
 
-class GdaTooltipDirective {
+class GdaTooltip {
     constructor(elementRef, renderer, gdaTooltipService) {
         this.elementRef = elementRef;
         this.renderer = renderer;
@@ -121,9 +121,9 @@ class GdaTooltipDirective {
         }
     }
 }
-GdaTooltipDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipDirective, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaTooltipService }], target: i0.ɵɵFactoryTarget.Directive });
-GdaTooltipDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaTooltipDirective, selector: "[gdaTooltip]", inputs: { gdaTooltip: "gdaTooltip", dataHtml: "dataHtml" }, host: { listeners: { "mouseenter": "onClick($event)", "mouseleave": "mouseleave()" } }, usesOnChanges: true, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipDirective, decorators: [{
+GdaTooltip.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltip, deps: [{ token: i0.ElementRef }, { token: i0.Renderer2 }, { token: GdaTooltipService }], target: i0.ɵɵFactoryTarget.Directive });
+GdaTooltip.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.4", type: GdaTooltip, selector: "[gdaTooltip]", inputs: { gdaTooltip: "gdaTooltip", dataHtml: "dataHtml" }, host: { listeners: { "mouseenter": "onClick($event)", "mouseleave": "mouseleave()" } }, usesOnChanges: true, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltip, decorators: [{
             type: Directive,
             args: [{
                     selector: '[gdaTooltip]'
@@ -143,17 +143,17 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
 class GdaTooltipModule {
 }
 GdaTooltipModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-GdaTooltipModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipModule, declarations: [GdaTooltipDirective], exports: [GdaTooltipDirective] });
+GdaTooltipModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipModule, declarations: [GdaTooltip], exports: [GdaTooltip] });
 GdaTooltipModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipModule });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaTooltipModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
-                        GdaTooltipDirective
+                        GdaTooltip
                     ],
                     imports: [],
                     exports: [
-                        GdaTooltipDirective
+                        GdaTooltip
                     ]
                 }]
         }] });
@@ -166,5 +166,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { GdaStyleTooltip, GdaTooltipDirective, GdaTooltipModule, GdaTooltipService };
+export { GdaStyleTooltip, GdaTooltip, GdaTooltipModule, GdaTooltipService };
 //# sourceMappingURL=gda-tooltip.mjs.map

@@ -1,7 +1,7 @@
 import { ElementRef, OnChanges, OnDestroy, Renderer2 } from '@angular/core';
 import { GdaTooltipService } from './gda-tooltip.service';
 import * as i0 from "@angular/core";
-export declare class GdaTooltipDirective implements OnChanges, OnDestroy {
+export declare class GdaTooltip implements OnChanges, OnDestroy {
     elementRef: ElementRef;
     private renderer;
     private gdaTooltipService;
@@ -47,6 +47,6 @@ export declare class GdaTooltipDirective implements OnChanges, OnDestroy {
      * Distrugge i tooltip
      */
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<GdaTooltipDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltipDirective, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never, never, false, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GdaTooltip, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<GdaTooltip, "[gdaTooltip]", never, { "gdaTooltip": "gdaTooltip"; "dataHtml": "dataHtml"; }, {}, never, never, false, never>;
 }
