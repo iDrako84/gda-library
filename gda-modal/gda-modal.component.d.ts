@@ -17,7 +17,7 @@ export declare class GdaModal {
     protected openStatus: boolean;
     private embeddedViewRef;
     constructor(renderer: Renderer2, viewContainerRef: ViewContainerRef);
-    onKeydownHandler(event: KeyboardEvent): void;
+    private onKeydownHandler;
     open(): void;
     close(e?: Event): void;
     protected closeModal(e: Event): void;
