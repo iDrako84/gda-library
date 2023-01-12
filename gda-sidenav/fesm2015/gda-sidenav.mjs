@@ -398,3 +398,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
 
 export { GdaSidenav, GdaSidenavHeader, GdaSidenavModule, GdaSidenavService };
 //# sourceMappingURL=gda-sidenav.mjs.map
+//# sourceMappingURL=gda-sidenav.mjs.map

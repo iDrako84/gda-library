@@ -15,6 +15,8 @@ imports: [
 To use Toast you need to import the GdaToast service.
 
 ```
+import { GdaToast } from 'gda-library/gda-toast';
+...
 constructor(private gdaToast: GdaToast) { 
     ...
 }

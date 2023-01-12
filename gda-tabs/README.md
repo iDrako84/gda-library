@@ -54,7 +54,7 @@ DEFAULT:
 CUSTOM GLOBAL:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     const tabsStyle = new GdaTabsStyleModel();
@@ -67,7 +67,7 @@ constructor(private gdaTabsService: GdaTabsService) {
 CUSTOM SINGLE:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     const tabsStyle = new GdaTabsStyleModel();
@@ -116,7 +116,7 @@ An animation occurs when passing from one tab to another, it is possible to deac
 GLOBAL:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     this.gdaTabsService.animationsActivated = false;

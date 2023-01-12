@@ -706,3 +706,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
 
 export { GdaTab, GdaTabs, GdaTabsModule, GdaTabsService, GdaTabsStyleModel, GdaTabsStyleStatusModel };
 //# sourceMappingURL=gda-tabs.mjs.map
+//# sourceMappingURL=gda-tabs.mjs.map

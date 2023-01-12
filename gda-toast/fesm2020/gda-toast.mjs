@@ -240,3 +240,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
 
 export { GdaToast, GdaToastConfig, GdaToastModule };
 //# sourceMappingURL=gda-toast.mjs.map
+//# sourceMappingURL=gda-toast.mjs.map

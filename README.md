@@ -84,7 +84,7 @@ The directive enables a click animation by default, it can be disabled using the
 Animations can be blocked globally by the `GdaButtonService` service (the property value that is passed to the directive will always have priority):
 
 ```
-import { GdaButtonService } from 'gda-button';
+import { GdaButtonService } from 'gda-library/gda-button';
 ...
 constructor(private gdaButtonService: GdaButtonService) {
     this.gdaButtonService.animationEnabled = false;
@@ -251,6 +251,18 @@ openModal(): void {
 
 closeModal(): void {
     this.myModalEl?.close();
+}
+```
+
+You can close all modals with `closeAllModal` method via `GdaModalService`.
+
+```
+import { GdaModalService } from "gda-library/gda-modal";
+...
+constructor(private gdaModalService: GdaModalService) {}
+
+closeAllModal(): void {
+    this.gdaModalService.closeAllModal();
 }
 ```
 
@@ -451,7 +463,7 @@ DEFAULT:
 CUSTOM GLOBAL:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     const tabsStyle = new GdaTabsStyleModel();
@@ -464,7 +476,7 @@ constructor(private gdaTabsService: GdaTabsService) {
 CUSTOM SINGLE:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     const tabsStyle = new GdaTabsStyleModel();
@@ -513,7 +525,7 @@ An animation occurs when passing from one tab to another, it is possible to deac
 GLOBAL:
 
 ```
-import { GdaTabsService, GdaTabsStyleModel } from 'gda-tabs';
+import { GdaTabsService, GdaTabsStyleModel } from 'gda-library/gda-tabs';
 ...
 constructor(private gdaTabsService: GdaTabsService) { 
     this.gdaTabsService.animationsActivated = false;
@@ -599,6 +611,8 @@ imports: [
 To use Toast you need to import the GdaToast service.
 
 ```
+import { GdaToast } from 'gda-library/gda-toast';
+...
 constructor(private gdaToast: GdaToast) { 
     ...
 }
@@ -696,7 +710,7 @@ The GdaTooltipService service provides the GdaTooltipDirective directive with so
 To modify the styles, import the service into the main module.
 
 ```
-import { GdaStyleTooltip, GdaTooltipService } from 'gda-tooltip';
+import { GdaStyleTooltip, GdaTooltipService } from 'gda-library/gda-tooltip';
 ...
 export class AppModule { 
 

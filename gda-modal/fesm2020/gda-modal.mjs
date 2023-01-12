@@ -1,11 +1,20 @@
 import * as i0 from '@angular/core';
 import { Injectable, TemplateRef, Component, HostBinding, ViewChild, Input, HostListener, NgModule } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
-import * as i1 from '@angular/common';
+import * as i2 from '@angular/common';
 import { CommonModule } from '@angular/common';
 
 class GdaModalService {
-    constructor() { }
+    constructor() {
+        this.closeAllModalTrigger = new Subject();
+    }
+    getCloseAllmodals() {
+        return this.closeAllModalTrigger;
+    }
+    closeAllModal() {
+        this.closeAllModalTrigger.next();
+    }
 }
 GdaModalService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaModalService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 GdaModalService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaModalService, providedIn: 'root' });
@@ -17,9 +26,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
         }], ctorParameters: function () { return []; } });
 
 class GdaModal {
-    constructor(renderer, viewContainerRef) {
+    constructor(renderer, viewContainerRef, gdaModalService) {
         this.renderer = renderer;
         this.viewContainerRef = viewContainerRef;
+        this.gdaModalService = gdaModalService;
         /**
          * Display
          */
@@ -32,6 +42,10 @@ class GdaModal {
         this.modalId = '';
         this.modalClasses = '';
         this.escapeEnabled = true;
+        this.subs = new Subscription();
+    }
+    ngOnInit() {
+        this.gdaModalService.getCloseAllmodals().subscribe(() => this.close());
     }
     onKeydownHandler(event) {
         if (this.escapeEnabled)
@@ -82,8 +96,11 @@ class GdaModal {
         if (!this.backdoorNotTriggerClose)
             this.close(e);
     }
+    ngOnDestroy() {
+        this.subs.unsubscribe();
+    }
 }
-GdaModal.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaModal, deps: [{ token: i0.Renderer2 }, { token: i0.ViewContainerRef }], target: i0.ɵɵFactoryTarget.Component });
+GdaModal.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.4", ngImport: i0, type: GdaModal, deps: [{ token: i0.Renderer2 }, { token: i0.ViewContainerRef }, { token: GdaModalService }], target: i0.ɵɵFactoryTarget.Component });
 GdaModal.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.0.4", type: GdaModal, selector: "gda-modal", inputs: { backdoor: "backdoor", backdoorNotTriggerClose: "backdoorNotTriggerClose", modalId: "modalId", modalClasses: "modalClasses", escapeEnabled: "escapeEnabled" }, host: { listeners: { "document:keydown.escape": "onKeydownHandler($event)" }, properties: { "style.display": "this.setStyle" } }, viewQueries: [{ propertyName: "contentTemplate", first: true, predicate: ["content"], descendants: true, read: TemplateRef }], ngImport: i0, template: `
     <ng-template #content>
       <div class="gda-modal-overlay gda-modal-overlay-darked" *ngIf="backdoor && backdoorShow" (click)="closeModal($event)" @overlay></div>
@@ -91,7 +108,7 @@ GdaModal.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.
         <ng-content></ng-content>
       </div>
     </ng-template>
-  `, isInline: true, dependencies: [{ kind: "directive", type: i1.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }], animations: [
+  `, isInline: true, dependencies: [{ kind: "directive", type: i2.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }], animations: [
         trigger('overlay', [
             transition(':enter', [
                 style({ background: 'rgba(0, 0, 0, 0.5)', 'backdrop-filter': 'blur(3px)' }),
@@ -188,7 +205,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.4", ngImpor
                         ])
                     ]
                 }]
-        }], ctorParameters: function () { return [{ type: i0.Renderer2 }, { type: i0.ViewContainerRef }]; }, propDecorators: { setStyle: [{
+        }], ctorParameters: function () { return [{ type: i0.Renderer2 }, { type: i0.ViewContainerRef }, { type: GdaModalService }]; }, propDecorators: { setStyle: [{
                 type: HostBinding,
                 args: ['style.display']
             }], contentTemplate: [{

@@ -40,7 +40,7 @@ The GdaTooltipService service provides the GdaTooltipDirective directive with so
 To modify the styles, import the service into the main module.
 
 ```
-import { GdaStyleTooltip, GdaTooltipService } from 'gda-tooltip';
+import { GdaStyleTooltip, GdaTooltipService } from 'gda-library/gda-tooltip';
 ...
 export class AppModule { 
 

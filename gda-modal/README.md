@@ -99,3 +99,16 @@ closeModal(): void {
     this.myModalEl?.close();
 }
 ```
+
+You can close all modals with `closeAllModal` method via `GdaModalService`.
+
+```
+import { GdaModalService } from "gda-library/gda-modal";
+...
+constructor(private gdaModalService: GdaModalService) {}
+
+closeAllModal(): void {
+    this.gdaModalService.closeAllModal();
+}
+```
+
