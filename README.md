@@ -252,7 +252,9 @@ openModal(): void {
 closeModal(): void {
     this.myModalEl?.close();
 }
-```## GDA SIDENAV
+```
+
+## GDA SIDENAV
 
 Import the `GdaTabsModule` module into your project.
 
